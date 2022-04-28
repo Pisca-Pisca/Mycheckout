@@ -9,12 +9,12 @@ package UI_Sistema;
  *
  * @author jessi
  */
-public class UI_clienteTelaInicial extends javax.swing.JFrame {
+public class UI_clientePratosCompartilhar extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_clienteTelaInicial
+     * Creates new form UI_clientePratosCompartilhar
      */
-    public UI_clienteTelaInicial() {
+    public UI_clientePratosCompartilhar() {
         initComponents();
     }
 
@@ -35,10 +35,14 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Btn_parmegianas = new javax.swing.JButton();
+        Btn_files = new javax.swing.JButton();
+        Btn_combos = new javax.swing.JButton();
+        Btn_massas = new javax.swing.JButton();
+        Btn_porcoes = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
@@ -50,31 +54,31 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_chamaGarcom);
-        Btn_chamaGarcom.setBounds(961, 86, 50, 40);
+        Btn_chamaGarcom.setBounds(960, 60, 50, 50);
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
         Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_bebidas);
-        Btn_bebidas.setBounds(20, 200, 160, 60);
+        Btn_bebidas.setBounds(20, 180, 160, 60);
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
         Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_entradas);
-        Btn_entradas.setBounds(20, 290, 160, 60);
+        Btn_entradas.setBounds(20, 270, 160, 60);
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
         Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_pratosIndividuais);
-        Btn_pratosIndividuais.setBounds(20, 380, 160, 60);
+        Btn_pratosIndividuais.setBounds(20, 360, 160, 60);
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
         Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_pratosCompartilhar);
-        Btn_pratosCompartilhar.setBounds(20, 470, 160, 60);
+        Btn_pratosCompartilhar.setBounds(20, 450, 160, 60);
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
@@ -85,26 +89,65 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_sobremesa);
-        Btn_sobremesa.setBounds(20, 560, 160, 60);
+        Btn_sobremesa.setBounds(20, 540, 160, 60);
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
         Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_minhaConta);
-        Btn_minhaConta.setBounds(20, 650, 160, 50);
+        Btn_minhaConta.setBounds(20, 630, 160, 50);
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
         Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_sair);
-        Btn_sair.setBounds(890, 720, 120, 30);
+        Btn_sair.setBounds(890, 700, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioTelaPrincipal.png"))); // NOI18N
+        Btn_parmegianas.setBorderPainted(false);
+        Btn_parmegianas.setContentAreaFilled(false);
+        Btn_parmegianas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_parmegianas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_parmegianasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_parmegianas);
+        Btn_parmegianas.setBounds(210, 150, 800, 100);
+
+        Btn_files.setBorderPainted(false);
+        Btn_files.setContentAreaFilled(false);
+        Btn_files.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_files.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_filesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_files);
+        Btn_files.setBounds(210, 260, 800, 100);
+
+        Btn_combos.setBorderPainted(false);
+        Btn_combos.setContentAreaFilled(false);
+        Btn_combos.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        getContentPane().add(Btn_combos);
+        Btn_combos.setBounds(210, 370, 800, 100);
+
+        Btn_massas.setBorderPainted(false);
+        Btn_massas.setContentAreaFilled(false);
+        Btn_massas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        getContentPane().add(Btn_massas);
+        Btn_massas.setBounds(210, 480, 800, 90);
+
+        Btn_porcoes.setBorderPainted(false);
+        Btn_porcoes.setContentAreaFilled(false);
+        Btn_porcoes.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        getContentPane().add(Btn_porcoes);
+        Btn_porcoes.setBounds(210, 590, 800, 90);
+
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioPratosCompartilhar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 789);
+        Img_baseTela.setBounds(0, 0, 1025, 746);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
@@ -114,6 +157,14 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
+
+    private void Btn_parmegianasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_parmegianasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_parmegianasActionPerformed
+
+    private void Btn_filesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_filesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_filesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,20 +183,20 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clientePratosCompartilhar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clientePratosCompartilhar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clientePratosCompartilhar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clientePratosCompartilhar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_clienteTelaInicial().setVisible(true);
+                new UI_clientePratosCompartilhar().setVisible(true);
             }
         });
     }
@@ -153,8 +204,13 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
+    private javax.swing.JButton Btn_combos;
     private javax.swing.JButton Btn_entradas;
+    private javax.swing.JButton Btn_files;
+    private javax.swing.JButton Btn_massas;
     private javax.swing.JButton Btn_minhaConta;
+    private javax.swing.JButton Btn_parmegianas;
+    private javax.swing.JButton Btn_porcoes;
     private javax.swing.JButton Btn_pratosCompartilhar;
     private javax.swing.JButton Btn_pratosIndividuais;
     private javax.swing.JButton Btn_sair;

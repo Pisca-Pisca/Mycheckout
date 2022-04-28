@@ -9,12 +9,12 @@ package UI_Sistema;
  *
  * @author jessi
  */
-public class UI_clienteTelaInicial extends javax.swing.JFrame {
+public class UI_clienteBebidasDrinks extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_clienteTelaInicial
+     * Creates new form UI_clienteBebidasRefrigerantes
      */
-    public UI_clienteTelaInicial() {
+    public UI_clienteBebidasDrinks() {
         initComponents();
     }
 
@@ -38,7 +38,6 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
@@ -50,7 +49,7 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_chamaGarcom);
-        Btn_chamaGarcom.setBounds(961, 86, 50, 40);
+        Btn_chamaGarcom.setBounds(960, 80, 50, 50);
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
@@ -99,12 +98,11 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioTelaPrincipal.png"))); // NOI18N
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_bebidasBaseItem.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 789);
+        Img_baseTela.setBounds(0, 0, 1025, 768);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
@@ -132,20 +130,27 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasDrinks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasDrinks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasDrinks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasDrinks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_clienteTelaInicial().setVisible(true);
+                new UI_clienteBebidasDrinks().setVisible(true);
             }
         });
     }

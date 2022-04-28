@@ -9,12 +9,12 @@ package UI_Sistema;
  *
  * @author jessi
  */
-public class UI_clienteTelaInicial extends javax.swing.JFrame {
+public class UI_clienteEntradas extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_clienteTelaInicial
+     * Creates new form UI_clienteEntradas
      */
-    public UI_clienteTelaInicial() {
+    public UI_clienteEntradas() {
         initComponents();
     }
 
@@ -38,7 +38,6 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
@@ -54,7 +53,7 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
-        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         getContentPane().add(Btn_bebidas);
         Btn_bebidas.setBounds(20, 200, 160, 60);
 
@@ -96,15 +95,19 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
         Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_sairActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioTelaPrincipal.png"))); // NOI18N
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioEntradas.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 789);
+        Img_baseTela.setBounds(0, 0, 1025, 770);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
@@ -114,6 +117,10 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
+
+    private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,20 +139,20 @@ public class UI_clienteTelaInicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteTelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_clienteTelaInicial().setVisible(true);
+                new UI_clienteEntradas().setVisible(true);
             }
         });
     }
