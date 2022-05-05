@@ -43,6 +43,7 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
@@ -52,22 +53,52 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
                 Btn_chamaGarcomActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_chamaGarcom);
+        Btn_chamaGarcom.setBounds(960, 60, 50, 50);
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
         Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_bebidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_bebidasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_bebidas);
+        Btn_bebidas.setBounds(20, 180, 160, 60);
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
         Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_entradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_entradasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_entradas);
+        Btn_entradas.setBounds(20, 270, 160, 60);
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
         Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosIndividuais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_pratosIndividuaisActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_pratosIndividuais);
+        Btn_pratosIndividuais.setBounds(20, 360, 160, 60);
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
         Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosCompartilhar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_pratosCompartilharActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_pratosCompartilhar);
+        Btn_pratosCompartilhar.setBounds(20, 450, 160, 60);
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
@@ -77,120 +108,89 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
                 Btn_sobremesaActionPerformed(evt);
             }
         });
+        getContentPane().add(Btn_sobremesa);
+        Btn_sobremesa.setBounds(20, 540, 160, 60);
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
         Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_minhaConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_minhaContaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_minhaConta);
+        Btn_minhaConta.setBounds(20, 630, 160, 50);
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
         Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_sairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_sair);
+        Btn_sair.setBounds(890, 700, 120, 30);
 
         Btn_refrigerantes.setBorderPainted(false);
         Btn_refrigerantes.setContentAreaFilled(false);
         Btn_refrigerantes.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_refrigerantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_refrigerantesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_refrigerantes);
+        Btn_refrigerantes.setBounds(210, 150, 800, 100);
 
         Btn_sucos.setBorderPainted(false);
         Btn_sucos.setContentAreaFilled(false);
         Btn_sucos.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sucos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_sucosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_sucos);
+        Btn_sucos.setBounds(210, 260, 800, 100);
 
         Btn_aguas.setBorderPainted(false);
         Btn_aguas.setContentAreaFilled(false);
         Btn_aguas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_aguas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_aguasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_aguas);
+        Btn_aguas.setBounds(210, 370, 800, 100);
 
         Btn_cervejas.setBorderPainted(false);
         Btn_cervejas.setContentAreaFilled(false);
         Btn_cervejas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_cervejas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_cervejasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_cervejas);
+        Btn_cervejas.setBounds(210, 480, 800, 90);
 
         Btn_drinks.setBorderPainted(false);
         Btn_drinks.setContentAreaFilled(false);
         Btn_drinks.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_drinks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_drinksActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_drinks);
+        Btn_drinks.setBounds(210, 590, 800, 90);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioBebidas.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(960, 960, 960)
-                .addComponent(Btn_chamaGarcom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Btn_bebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(Btn_refrigerantes, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Btn_pratosCompartilhar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Btn_sobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_minhaConta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(Btn_drinks, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(890, 890, 890)
-                .addComponent(Btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Btn_pratosIndividuais, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(Btn_aguas, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(Btn_sucos, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(Img_baseTela)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addComponent(Btn_cervejas, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Btn_entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(Btn_chamaGarcom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(Btn_bebidas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Btn_refrigerantes, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(200, 200, 200)
-                .addComponent(Btn_pratosCompartilhar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Btn_sobremesa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(Btn_minhaConta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(Btn_drinks, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(Btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(360, 360, 360)
-                .addComponent(Btn_pratosIndividuais, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(370, 370, 370)
-                .addComponent(Btn_aguas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(Btn_sucos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(Img_baseTela, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(Btn_cervejas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(270, 270, 270)
-                .addComponent(Btn_entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(Img_baseTela);
+        Img_baseTela.setBounds(0, 0, 1025, 750);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -200,8 +200,63 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
-        // TODO add your handling code here:
+        UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
+        sobremesas.setVisible(true);
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
+
+    private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_Btn_sairActionPerformed
+
+    private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
+        UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
+        bebidasMenu.setVisible(true);
+    }//GEN-LAST:event_Btn_bebidasActionPerformed
+
+    private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
+        UI_clienteEntradas entradas = new UI_clienteEntradas();
+        entradas.setVisible(true);
+    }//GEN-LAST:event_Btn_entradasActionPerformed
+
+    private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
+        UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
+        pratosIndividuais.setVisible(true);
+    }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
+
+    private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
+        UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
+        pratosCompartilhar.setVisible(true);
+    }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
+
+    private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
+        UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
+        minhaConta.setVisible(true);
+    }//GEN-LAST:event_Btn_minhaContaActionPerformed
+
+    private void Btn_refrigerantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_refrigerantesActionPerformed
+        UI_clienteBebidasRefrigerantes refrigerantes = new UI_clienteBebidasRefrigerantes();
+        refrigerantes.setVisible(true);
+    }//GEN-LAST:event_Btn_refrigerantesActionPerformed
+
+    private void Btn_sucosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sucosActionPerformed
+        UI_clienteBebidasSucos sucos = new UI_clienteBebidasSucos();
+        sucos.setVisible(true);
+    }//GEN-LAST:event_Btn_sucosActionPerformed
+
+    private void Btn_aguasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_aguasActionPerformed
+        UI_clienteBebidasAguas aguas = new UI_clienteBebidasAguas();
+        aguas.setVisible(true);
+    }//GEN-LAST:event_Btn_aguasActionPerformed
+
+    private void Btn_cervejasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_cervejasActionPerformed
+        UI_clienteBebidasCervejas cervejas = new UI_clienteBebidasCervejas();
+        cervejas.setVisible(true);
+    }//GEN-LAST:event_Btn_cervejasActionPerformed
+
+    private void Btn_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_drinksActionPerformed
+        UI_clienteBebidasDrinks drinks = new UI_clienteBebidasDrinks();
+        drinks.setVisible(true);
+    }//GEN-LAST:event_Btn_drinksActionPerformed
 
     /**
      * @param args the command line arguments

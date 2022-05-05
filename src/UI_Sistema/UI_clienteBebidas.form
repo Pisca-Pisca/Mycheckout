@@ -20,112 +20,8 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="960" pref="960" max="-2" attributes="0"/>
-              <Component id="Btn_chamaGarcom" min="-2" pref="50" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Btn_bebidas" min="-2" pref="160" max="-2" attributes="0"/>
-              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-              <Component id="Btn_refrigerantes" min="-2" pref="800" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Btn_pratosCompartilhar" min="-2" pref="160" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Btn_sobremesa" min="-2" pref="160" max="-2" attributes="0"/>
-                  <Component id="Btn_minhaConta" min="-2" pref="160" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-              <Component id="Btn_drinks" min="-2" pref="800" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="890" pref="890" max="-2" attributes="0"/>
-              <Component id="Btn_sair" min="-2" pref="120" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Btn_pratosIndividuais" min="-2" pref="160" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
-              <Component id="Btn_aguas" min="-2" pref="800" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
-              <Component id="Btn_sucos" min="-2" pref="800" max="-2" attributes="0"/>
-          </Group>
-          <Component id="Img_baseTela" min="-2" max="-2" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
-              <Component id="Btn_cervejas" min="-2" pref="800" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Btn_entradas" min="-2" pref="160" max="-2" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
-              <Component id="Btn_chamaGarcom" min="-2" pref="50" max="-2" attributes="0"/>
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                      <Component id="Btn_bebidas" min="-2" pref="60" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="Btn_refrigerantes" min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="200" pref="200" max="-2" attributes="0"/>
-              <Component id="Btn_pratosCompartilhar" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="Btn_sobremesa" min="-2" pref="60" max="-2" attributes="0"/>
-                      <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                      <Component id="Btn_minhaConta" min="-2" pref="50" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                      <Component id="Btn_drinks" min="-2" pref="90" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-              <Component id="Btn_sair" min="-2" pref="30" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="360" pref="360" max="-2" attributes="0"/>
-              <Component id="Btn_pratosIndividuais" min="-2" pref="60" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="370" pref="370" max="-2" attributes="0"/>
-              <Component id="Btn_aguas" min="-2" pref="100" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="260" pref="260" max="-2" attributes="0"/>
-              <Component id="Btn_sucos" min="-2" pref="100" max="-2" attributes="0"/>
-          </Group>
-          <Component id="Img_baseTela" min="-2" pref="750" max="-2" attributes="0"/>
-          <Group type="102" attributes="0">
-              <EmptySpace min="480" pref="480" max="-2" attributes="0"/>
-              <Component id="Btn_cervejas" min="-2" pref="90" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="270" pref="270" max="-2" attributes="0"/>
-              <Component id="Btn_entradas" min="-2" pref="60" max="-2" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="Btn_chamaGarcom">
@@ -139,6 +35,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_chamaGarcomActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="960" y="60" width="50" height="50"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_bebidas">
       <Properties>
@@ -148,6 +49,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_bebidasActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="180" width="160" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_entradas">
       <Properties>
@@ -157,6 +66,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_entradasActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="270" width="160" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_pratosIndividuais">
       <Properties>
@@ -166,6 +83,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_pratosIndividuaisActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="360" width="160" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_pratosCompartilhar">
       <Properties>
@@ -175,6 +100,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_pratosCompartilharActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="450" width="160" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_sobremesa">
       <Properties>
@@ -187,6 +120,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_sobremesaActionPerformed"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="540" width="160" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_minhaConta">
       <Properties>
@@ -196,6 +134,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_minhaContaActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="630" width="160" height="50"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_sair">
       <Properties>
@@ -205,6 +151,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_sairActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="890" y="700" width="120" height="30"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_refrigerantes">
       <Properties>
@@ -214,6 +168,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_refrigerantesActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="210" y="150" width="800" height="100"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_sucos">
       <Properties>
@@ -223,6 +185,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_sucosActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="210" y="260" width="800" height="100"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_aguas">
       <Properties>
@@ -232,6 +202,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_aguasActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="210" y="370" width="800" height="100"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_cervejas">
       <Properties>
@@ -241,6 +219,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_cervejasActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="210" y="480" width="800" height="90"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="Btn_drinks">
       <Properties>
@@ -250,6 +236,14 @@
           <Color id="Cursor em Forma de Cruz"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_drinksActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="210" y="590" width="800" height="90"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="Img_baseTela">
       <Properties>
@@ -257,6 +251,11 @@
           <Image iconType="3" name="/Img/Img_CardapioBebidas.png"/>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="-1" height="750"/>
+        </Constraint>
+      </Constraints>
     </Component>
   </SubComponents>
 </Form>

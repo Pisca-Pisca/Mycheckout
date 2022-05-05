@@ -9,12 +9,12 @@ package UI_Sistema;
  *
  * @author jessi
  */
-public class UI_clienteSobremesas extends javax.swing.JFrame {
+public class UI_clienteMinhaConta extends javax.swing.JFrame {
 
     /**
-     * Creates new form UI_clienteSobremesas
+     * Creates new form UI_clienteMinhaConta
      */
-    public UI_clienteSobremesas() {
+    public UI_clienteMinhaConta() {
         initComponents();
     }
 
@@ -27,6 +27,10 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Txt_valorTotalMesa = new javax.swing.JLabel();
+        Txt_numeroMesa1 = new javax.swing.JLabel();
+        Tabela_itensMinhaConta = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         Btn_chamaGarcom = new javax.swing.JButton();
         Btn_bebidas = new javax.swing.JButton();
         Btn_entradas = new javax.swing.JButton();
@@ -35,10 +39,32 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Btn_fechamentoConta = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        Txt_valorTotalMesa.setText("valorTotalMesa");
+        getContentPane().add(Txt_valorTotalMesa);
+        Txt_valorTotalMesa.setBounds(910, 610, 90, 30);
+
+        Txt_numeroMesa1.setText("numeroMesa");
+        getContentPane().add(Txt_numeroMesa1);
+        Txt_numeroMesa1.setBounds(360, 190, 80, 30);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null}
+            },
+            new String [] {
+                "Produto", "Valor"
+            }
+        ));
+        Tabela_itensMinhaConta.setViewportView(jTable1);
+
+        getContentPane().add(Tabela_itensMinhaConta);
+        Tabela_itensMinhaConta.setBounds(220, 230, 770, 360);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
@@ -128,9 +154,19 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioSobremesas.png"))); // NOI18N
+        Btn_fechamentoConta.setBorderPainted(false);
+        Btn_fechamentoConta.setContentAreaFilled(false);
+        Btn_fechamentoConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_fechamentoContaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_fechamentoConta);
+        Btn_fechamentoConta.setBounds(760, 650, 240, 40);
+
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_minhaContaBaseTela.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 770);
+        Img_baseTela.setBounds(0, 0, 1020, 770);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,39 +175,44 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
+    private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
+        UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
+        bebidasMenu.setVisible(true);
+    }//GEN-LAST:event_Btn_bebidasActionPerformed
+
+    private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
+        UI_clienteEntradas entradas = new UI_clienteEntradas();
+        entradas.setVisible(true);
+    }//GEN-LAST:event_Btn_entradasActionPerformed
+
+    private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
+        UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
+        pratosIndividuais.setVisible(true);
+    }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
+
+    private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
+        UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
+        pratosCompartilhar.setVisible(true);
+    }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
+
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
-     UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
+        UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
+
+    private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
+        UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
+        minhaConta.setVisible(true);
+    }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_Btn_sairActionPerformed
 
-    private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
-    UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
-        bebidasMenu.setVisible(true);
-    }//GEN-LAST:event_Btn_bebidasActionPerformed
-
-    private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
-     UI_clienteEntradas entradas = new UI_clienteEntradas();
-        entradas.setVisible(true);
-    }//GEN-LAST:event_Btn_entradasActionPerformed
-
-    private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
-    UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
-        pratosIndividuais.setVisible(true);
-    }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
-
-    private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
-     UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
-        pratosCompartilhar.setVisible(true);
-    }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
-
-    private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
-    UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
-        minhaConta.setVisible(true);  
-    }//GEN-LAST:event_Btn_minhaContaActionPerformed
+    private void Btn_fechamentoContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_fechamentoContaActionPerformed
+        UI_clienteMonteSuaConta monteSuaConta = new UI_clienteMonteSuaConta();
+        monteSuaConta.setVisible(true);
+    }//GEN-LAST:event_Btn_fechamentoContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,20 +231,20 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteSobremesas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteMinhaConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteSobremesas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteMinhaConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteSobremesas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteMinhaConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteSobremesas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteMinhaConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_clienteSobremesas().setVisible(true);
+                new UI_clienteMinhaConta().setVisible(true);
             }
         });
     }
@@ -212,11 +253,16 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;
+    private javax.swing.JButton Btn_fechamentoConta;
     private javax.swing.JButton Btn_minhaConta;
     private javax.swing.JButton Btn_pratosCompartilhar;
     private javax.swing.JButton Btn_pratosIndividuais;
     private javax.swing.JButton Btn_sair;
     private javax.swing.JButton Btn_sobremesa;
     private javax.swing.JLabel Img_baseTela;
+    private javax.swing.JScrollPane Tabela_itensMinhaConta;
+    private javax.swing.JLabel Txt_numeroMesa1;
+    private javax.swing.JLabel Txt_valorTotalMesa;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
