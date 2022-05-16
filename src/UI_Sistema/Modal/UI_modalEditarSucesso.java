@@ -33,7 +33,8 @@ public class UI_modalEditarSucesso extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(484, 307));
+        setMaximumSize(new java.awt.Dimension(484, 249));
+        setMinimumSize(new java.awt.Dimension(484, 249));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
