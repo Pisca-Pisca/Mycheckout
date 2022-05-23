@@ -6,39 +6,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 @NamedQueries({
-    @NamedQuery( name = "Garcom.findAll", query= "SELECT c FROM Garcom c"), 
-    @NamedQuery( name = "Garcom.findById", query= "SELECT c FROM Garcom c WHERE c.id = :codigo")        
+    @NamedQuery( name = "Chamados_fila.findAll", query= "SELECT sub FROM Chamados_fila sub"), 
+    @NamedQuery( name = "Chamados_fila.findById", query= "SELECT sub FROM Chamados_fila sub WHERE sub.id = :codigo")        
 })
 
 @Entity
-public class Garcom implements Serializable {
+public class Chamados_fila implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "nome")
-    private String nome;
+    @OneToOne
+    @JoinColumn(name = "mesa_id")
+    private Mesa numeroMesa;
     
-    @Column(name = "senha")
-    private String senha;
-    
-    @Column(name = "ativo")
-    private boolean ativo;
+    @Column(name = "atendida")
+    private boolean atendida;
 
-    public Garcom() {
+    public Chamados_fila() {
     }
 
-    public Garcom(int id, String nome, String senha, boolean ativo) {
+    public Chamados_fila(int id, boolean atendida, Mesa mesa) {
         this.id = id;
-        this.nome = nome;
-        this.senha = senha;
-        this.ativo = ativo;
+        this.atendida = atendida;
+        this.numeroMesa = mesa;
     }
 
     public int getId() {
@@ -49,30 +48,22 @@ public class Garcom implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public Mesa getNumeroMesa() {
+        return numeroMesa;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNumeroMesa(Mesa numeroMesa) {
+        this.numeroMesa = numeroMesa;
     }
 
-    public String getSenha() {
-        return senha;
+    public boolean isAtendida() {
+        return atendida;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setAtendida(boolean atendida) {
+        this.atendida = atendida;
     }
 
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
-    }
-    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -83,10 +74,10 @@ public class Garcom implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Garcom)) {
+        if (!(object instanceof Chamados_fila)) {
             return false;
         }
-        Garcom other = (Garcom) object;
+        Chamados_fila other = (Chamados_fila) object;
         if (this.id != other.id) {
             return false;
         }
@@ -95,7 +86,7 @@ public class Garcom implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Garcom[ id=" + id + " ]";
+        return "Entity.Chamados_fila[ id=" + id + " ]";
     }
     
 }

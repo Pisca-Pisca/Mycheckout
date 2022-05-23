@@ -7,8 +7,11 @@ package UI_Sistema;
 
 import Dao.CategoriaDAO;
 import Dao.SubcategoriaDAO;
+import Dao.UsuarioDAO;
 import Entity.Categoria;
+import Entity.Usuario;
 import Entity.subcategoria;
+import Enum.Permissoes;
 
 /**
  *
@@ -77,6 +80,10 @@ public class TesteBanco extends javax.swing.JFrame {
         
         new SubcategoriaDAO().inserir(sub1);
         new SubcategoriaDAO().inserir(sub2);
+        
+        Usuario user1 = new Usuario(0, "123abc", Permissoes.GARÇOM);
+        
+        new UsuarioDAO().inserir(user1);
     }//GEN-LAST:event_InserirBancoActionPerformed
 
     /**

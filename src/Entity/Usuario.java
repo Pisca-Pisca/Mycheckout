@@ -1,5 +1,6 @@
 package Entity;
 
+import Enum.Permissoes;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,35 +11,31 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @NamedQueries({
-    @NamedQuery( name = "Garcom.findAll", query= "SELECT c FROM Garcom c"), 
-    @NamedQuery( name = "Garcom.findById", query= "SELECT c FROM Garcom c WHERE c.id = :codigo")        
+    @NamedQuery( name = "Usuario.findAll", query= "SELECT u FROM Usuario u"), 
+    @NamedQuery( name = "Usuario.findById", query= "SELECT u FROM Usuario u WHERE u.id = :codigo")        
 })
 
 @Entity
-public class Garcom implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "nome")
-    private String nome;
-    
     @Column(name = "senha")
     private String senha;
     
-    @Column(name = "ativo")
-    private boolean ativo;
-
-    public Garcom() {
+    @Column(name = "permissao")
+    private Permissoes permisao;
+    
+    public Usuario() {
     }
 
-    public Garcom(int id, String nome, String senha, boolean ativo) {
+    public Usuario(int id, String senha, Permissoes permisao) {
         this.id = id;
-        this.nome = nome;
         this.senha = senha;
-        this.ativo = ativo;
+        this.permisao = permisao;
     }
 
     public int getId() {
@@ -49,14 +46,6 @@ public class Garcom implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -65,14 +54,14 @@ public class Garcom implements Serializable {
         this.senha = senha;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public Permissoes getPermisao() {
+        return permisao;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setPermisao(Permissoes permisao) {
+        this.permisao = permisao;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -83,10 +72,10 @@ public class Garcom implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Garcom)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Garcom other = (Garcom) object;
+        Usuario other = (Usuario) object;
         if (this.id != other.id) {
             return false;
         }
@@ -95,7 +84,7 @@ public class Garcom implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Garcom[ id=" + id + " ]";
+        return "Entity.Usuario[ id=" + id + " ]";
     }
     
 }
