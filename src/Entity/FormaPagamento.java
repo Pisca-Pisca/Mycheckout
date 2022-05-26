@@ -27,7 +27,7 @@ public class FormaPagamento implements Serializable {
     private int id;
     
     @Column(name = "tipoPagamento")
-    private FormasPagamento tipoPagamento;
+    private String tipoPagamento;
     
     @OneToMany(mappedBy = "formaPagamento", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subconta> subconta;
@@ -35,7 +35,7 @@ public class FormaPagamento implements Serializable {
     public FormaPagamento() {
     }
 
-    public FormaPagamento(int id, FormasPagamento tipoPagamento) {
+    public FormaPagamento(int id, String tipoPagamento) {
         this.id = id;
         this.tipoPagamento = tipoPagamento;
     }
@@ -48,11 +48,11 @@ public class FormaPagamento implements Serializable {
         this.id = id;
     }
 
-    public FormasPagamento getTipoPagamento() {
+    public String getTipoPagamento() {
         return tipoPagamento;
     }
 
-    public void setTipoPagamento(FormasPagamento tipoPagamento) {
+    public void setTipoPagamento(String tipoPagamento) {
         this.tipoPagamento = tipoPagamento;
     }
 

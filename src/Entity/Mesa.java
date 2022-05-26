@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -39,14 +38,8 @@ public class Mesa implements Serializable {
     @Column(name = "valorTotal")
     private double valorTotal;
     
-    @ManyToMany(mappedBy = "numeroMesa")
-    private List<Produto> produtoList;
-    
-    @OneToOne(mappedBy = "numeroMesa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private MinhaConta conta;
-    
-    @OneToOne(mappedBy = "numeroMesa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Chamados_fila chamado;
+    @OneToMany(mappedBy = "numeroMesa", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MinhaConta> conta;
     
     @OneToMany(mappedBy = "numeroMesa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subconta> subconta;
@@ -54,14 +47,12 @@ public class Mesa implements Serializable {
     public Mesa() {
     }
 
-    public Mesa(int id, int numeroMesa, boolean ativa, boolean estaPago, double valorTotal, MinhaConta conta, Chamados_fila chamado) {
+    public Mesa(int id, int numeroMesa, boolean ativa, boolean estaPago, double valorTotal) {
         this.id = id;
         this.numeroMesa = numeroMesa;
         this.ativa = ativa;
         this.estaPago = estaPago;
         this.valorTotal = valorTotal;
-        this.conta = conta;
-        this.chamado = chamado;
     }
 
     public int getId() {
@@ -104,28 +95,12 @@ public class Mesa implements Serializable {
         this.valorTotal = valorTotal;
     }
 
-    public List<Produto> getProdutoList() {
-        return produtoList;
-    }
-
-    public void setProdutoList(List<Produto> produtoList) {
-        this.produtoList = produtoList;
-    }
-
-    public MinhaConta getConta() {
+    public List<MinhaConta> getConta() {
         return conta;
     }
 
-    public void setConta(MinhaConta conta) {
+    public void setConta(List<MinhaConta> conta) {
         this.conta = conta;
-    }
-
-    public Chamados_fila getChamado() {
-        return chamado;
-    }
-
-    public void setChamado(Chamados_fila chamado) {
-        this.chamado = chamado;
     }
 
     public List<Subconta> getSubconta() {

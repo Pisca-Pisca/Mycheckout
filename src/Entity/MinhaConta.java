@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -33,12 +35,15 @@ public class MinhaConta implements Serializable {
     @Column(name = "total")
     private double total;
     
-    @OneToOne()
+    @ManyToOne
     @JoinColumn(name = "mesa_id")
     private Mesa numeroMesa;
 
     @OneToMany(mappedBy = "conta", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subconta> subconta;
+    
+    @ManyToMany(mappedBy = "minhaConta")
+    private List<Produto> produtoList;
 
     public MinhaConta() {
     }
@@ -88,6 +93,14 @@ public class MinhaConta implements Serializable {
 
     public void setSubconta(List<Subconta> subconta) {
         this.subconta = subconta;
+    }
+        
+    public List<Produto> getProdutoList() {
+        return produtoList;
+    }
+
+    public void setProdutoList(List<Produto> produtoList) {
+        this.produtoList = produtoList;
     }
     
     @Override

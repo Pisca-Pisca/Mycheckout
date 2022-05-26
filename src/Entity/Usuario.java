@@ -27,12 +27,12 @@ public class Usuario implements Serializable {
     private String senha;
     
     @Column(name = "permissao")
-    private Permissoes permisao;
+    private String permisao;
     
     public Usuario() {
     }
 
-    public Usuario(int id, String senha, Permissoes permisao) {
+    public Usuario(int id, String senha, String permisao) {
         this.id = id;
         this.senha = senha;
         this.permisao = permisao;
@@ -54,11 +54,11 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Permissoes getPermisao() {
+    public String getPermisao() {
         return permisao;
     }
 
-    public void setPermisao(Permissoes permisao) {
+    public void setPermisao(String permisao) {
         this.permisao = permisao;
     }
 

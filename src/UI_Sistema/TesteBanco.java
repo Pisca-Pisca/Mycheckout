@@ -81,7 +81,7 @@ public class TesteBanco extends javax.swing.JFrame {
         new SubcategoriaDAO().inserir(sub1);
         new SubcategoriaDAO().inserir(sub2);
         
-        Usuario user1 = new Usuario(0, "123abc", Permissoes.GARÇOM);
+        Usuario user1 = new Usuario(0, "123abc", Permissoes.GARCOM.getPermissao());
         
         new UsuarioDAO().inserir(user1);
     }//GEN-LAST:event_InserirBancoActionPerformed

@@ -58,9 +58,9 @@ public class Produto implements Serializable {
     @JoinTable(
         name = "pedido",
         joinColumns = @JoinColumn(name = "produto_id"),
-        inverseJoinColumns = @JoinColumn(name = "mesa_id")
+        inverseJoinColumns = @JoinColumn(name = "minhaConta_id")
     )
-    private List<Mesa> numeroMesa;
+    private List<MinhaConta> minhaConta;
 
     public Produto() {
     }
@@ -149,12 +149,12 @@ public class Produto implements Serializable {
         this.subcategoria_codigo = subcategoria_codigo;
     }
 
-    public List<Mesa> getNumeroMesa() {
-        return numeroMesa;
+    public List<MinhaConta> getMinhaConta() {
+        return minhaConta;
     }
 
-    public void setNumeroMesa(List<Mesa> numeroMesa) {
-        this.numeroMesa = numeroMesa;
+    public void setMinhaConta(List<MinhaConta> MinhaConta) {
+        this.minhaConta = MinhaConta;
     }
 
     @Override

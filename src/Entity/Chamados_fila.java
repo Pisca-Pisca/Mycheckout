@@ -6,10 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 
 @NamedQueries({
     @NamedQuery( name = "Chamados_fila.findAll", query= "SELECT sub FROM Chamados_fila sub"), 
@@ -24,9 +22,8 @@ public class Chamados_fila implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @OneToOne
-    @JoinColumn(name = "mesa_id")
-    private Mesa numeroMesa;
+    @Column(name = "numeroMesa")
+    private int numeroMesa;
     
     @Column(name = "atendida")
     private boolean atendida;
@@ -34,7 +31,7 @@ public class Chamados_fila implements Serializable {
     public Chamados_fila() {
     }
 
-    public Chamados_fila(int id, boolean atendida, Mesa mesa) {
+    public Chamados_fila(int id, boolean atendida, int mesa) {
         this.id = id;
         this.atendida = atendida;
         this.numeroMesa = mesa;
@@ -48,11 +45,11 @@ public class Chamados_fila implements Serializable {
         this.id = id;
     }
 
-    public Mesa getNumeroMesa() {
+    public int getNumeroMesa() {
         return numeroMesa;
     }
 
-    public void setNumeroMesa(Mesa numeroMesa) {
+    public void setNumeroMesa(int numeroMesa) {
         this.numeroMesa = numeroMesa;
     }
 
