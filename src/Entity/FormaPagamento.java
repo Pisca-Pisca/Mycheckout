@@ -1,6 +1,5 @@
 package Entity;
 
-import Enum.FormasPagamento;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;

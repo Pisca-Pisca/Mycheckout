@@ -5,24 +5,20 @@
  */
 package UI_Sistema;
 
-import Dao.CategoriaDAO;
-import Dao.SubcategoriaDAO;
 import Dao.UsuarioDAO;
-import Entity.Categoria;
 import Entity.Usuario;
-import Entity.subcategoria;
 import Enum.Permissoes;
 
 /**
  *
  * @author nicol
  */
-public class TesteBanco extends javax.swing.JFrame {
+public class ConexãoBanco extends javax.swing.JFrame {
 
     /**
      * Creates new form TesteBanco
      */
-    public TesteBanco() {
+    public ConexãoBanco() {
         initComponents();
     }
 
@@ -69,19 +65,7 @@ public class TesteBanco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void InserirBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirBancoActionPerformed
-        Categoria cat1 = new Categoria(0, "Cat1");
-        Categoria cat2 = new Categoria(0, "Cat2");
-        
-        new CategoriaDAO().inserir(cat1);
-        new CategoriaDAO().inserir(cat2);
-        
-        subcategoria sub1 = new subcategoria(0, "Sub1", cat1);
-        subcategoria sub2 = new subcategoria(0, "Sub2", cat2);
-        
-        new SubcategoriaDAO().inserir(sub1);
-        new SubcategoriaDAO().inserir(sub2);
-        
-        Usuario user1 = new Usuario(0, "123abc", Permissoes.GARCOM.getPermissao());
+        Usuario user1 = new Usuario(0, "123abc", Permissoes.ADMIN.getPermissao());
         
         new UsuarioDAO().inserir(user1);
     }//GEN-LAST:event_InserirBancoActionPerformed
@@ -103,20 +87,21 @@ public class TesteBanco extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TesteBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConexãoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TesteBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConexãoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TesteBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConexãoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TesteBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConexãoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TesteBanco().setVisible(true);
+                new ConexãoBanco().setVisible(true);
             }
         });
     }
