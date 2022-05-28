@@ -40,10 +40,12 @@ public class UI_modalItensNaConta extends javax.swing.JDialog {
 
         Btn_Cancelar.setBorderPainted(false);
         Btn_Cancelar.setContentAreaFilled(false);
+        Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 130, 30));
 
         Btn_FecharConta.setBorderPainted(false);
         Btn_FecharConta.setContentAreaFilled(false);
+        Btn_FecharConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_FecharConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 130, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalItensCarrinho.png"))); // NOI18N

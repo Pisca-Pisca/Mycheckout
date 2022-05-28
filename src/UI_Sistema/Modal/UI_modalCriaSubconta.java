@@ -41,13 +41,16 @@ public class UI_modalCriaSubconta extends javax.swing.JDialog {
 
         Btn_Cancelar.setBorderPainted(false);
         Btn_Cancelar.setContentAreaFilled(false);
+        Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 130, 20));
 
         Btn_Confirmar.setBorderPainted(false);
         Btn_Confirmar.setContentAreaFilled(false);
+        Btn_Confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 130, 20));
 
         Input_Senha.setBackground(new java.awt.Color(196, 196, 196));
+        Input_Senha.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_Senha.setBorder(null);
         getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 260, 60));
 

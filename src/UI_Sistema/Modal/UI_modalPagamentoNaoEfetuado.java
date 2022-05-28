@@ -39,6 +39,12 @@ public class UI_modalPagamentoNaoEfetuado extends javax.swing.JDialog {
 
         Btn_Chamar.setBorderPainted(false);
         Btn_Chamar.setContentAreaFilled(false);
+        Btn_Chamar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Chamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ChamarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Chamar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 80, 60));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalPagamentoNaoEfetuado.png"))); // NOI18N
@@ -47,6 +53,10 @@ public class UI_modalPagamentoNaoEfetuado extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_ChamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ChamarActionPerformed
+        dispose();
+    }//GEN-LAST:event_Btn_ChamarActionPerformed
 
     /**
      * @param args the command line arguments

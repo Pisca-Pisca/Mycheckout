@@ -40,6 +40,11 @@ public class UI_modalEditarSucesso extends javax.swing.JDialog {
 
         Btn_Ok.setBorderPainted(false);
         Btn_Ok.setContentAreaFilled(false);
+        Btn_Ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_OkActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 120, 40));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalEditarSucesso.png"))); // NOI18N
@@ -48,6 +53,10 @@ public class UI_modalEditarSucesso extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_OkActionPerformed
+        dispose();
+    }//GEN-LAST:event_Btn_OkActionPerformed
 
     /**
      * @param args the command line arguments

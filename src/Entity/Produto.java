@@ -26,10 +26,13 @@ public class Produto implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id = 0;
 
     @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "descricao")
+    private String descricao;
 
     @Column(name = "preco1")
     private Double preco1;
@@ -65,9 +68,10 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(int id, String nome, Double preco1, Double preco2, Double preco3, boolean disponivel, byte[] foto, Categoria categoria_codigo, subcategoria subcategoria_codigo) {
+    public Produto(int id, String nome, String descricao, Double preco1, Double preco2, Double preco3, boolean disponivel, byte[] foto, Categoria categoria_codigo, subcategoria subcategoria_codigo) {
         this.id = id;
         this.nome = nome;
+        this.descricao = descricao;
         this.preco1 = preco1;
         this.preco2 = preco2;
         this.preco3 = preco3;
@@ -93,6 +97,14 @@ public class Produto implements Serializable {
         this.nome = nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public Double getPreco1() {
         return preco1;
     }

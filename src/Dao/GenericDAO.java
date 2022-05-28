@@ -5,6 +5,9 @@
  */
 package Dao;
 
+import UI_Sistema.Modal.UI_modalCadastroSucesso;
+import UI_Sistema.Modal.UI_modalEditarSucesso;
+import UI_Sistema.Modal.UI_modalExcluidoSucesso;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.*;
@@ -30,6 +33,9 @@ public class GenericDAO<T> {
             tx.begin();
             getEntityManager().persist(entity);
             tx.commit();
+            
+            UI_modalCadastroSucesso modalSucesso = new UI_modalCadastroSucesso(null, true);
+            modalSucesso.setVisible(true);
         } catch (Throwable t) {
             t.printStackTrace();
             tx.rollback();
@@ -44,6 +50,9 @@ public class GenericDAO<T> {
             tx.begin();
             getEntityManager().merge(entity);
             tx.commit();
+            
+            UI_modalEditarSucesso editarSucesso =  new UI_modalEditarSucesso(null, true);
+            editarSucesso.setVisible(true);
         } catch (Throwable t) {
             t.printStackTrace();
             tx.rollback();
@@ -58,6 +67,9 @@ public class GenericDAO<T> {
             tx.begin();
             getEntityManager().remove(entity);
             tx.commit();
+            
+            UI_modalExcluidoSucesso excluirSucesso = new UI_modalExcluidoSucesso(null, true);
+            excluirSucesso.setVisible(true);
         } catch (Throwable t) {
             t.printStackTrace();
             tx.rollback();
