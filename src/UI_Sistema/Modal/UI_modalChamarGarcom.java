@@ -39,6 +39,7 @@ public class UI_modalChamarGarcom extends javax.swing.JDialog {
 
         Btn_Ok.setBorderPainted(false);
         Btn_Ok.setContentAreaFilled(false);
+        Btn_Ok.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 120, 40));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalChamarGarcom.png"))); // NOI18N

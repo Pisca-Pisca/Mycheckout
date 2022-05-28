@@ -41,14 +41,18 @@ public class UI_modalCadastraMesa extends javax.swing.JDialog {
 
         Btn_Cancelar.setBorderPainted(false);
         Btn_Cancelar.setContentAreaFilled(false);
+        Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 130, 30));
 
         Btn_Confirmar.setBorderPainted(false);
         Btn_Confirmar.setContentAreaFilled(false);
+        Btn_Confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 130, 30));
 
         Input_NumeroMesa.setBackground(new java.awt.Color(196, 196, 196));
+        Input_NumeroMesa.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_NumeroMesa.setBorder(null);
+        Input_NumeroMesa.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         getContentPane().add(Input_NumeroMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 260, 60));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalCadastrarMesa.png"))); // NOI18N
