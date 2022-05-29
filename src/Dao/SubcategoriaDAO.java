@@ -6,11 +6,20 @@
 package Dao;
 
 import Entity.subcategoria;
+import java.util.List;
 
 /**
  *
  * @author nicol
  */
-public class SubcategoriaDAO extends GenericDAO<subcategoria>{
-    
+public class SubcategoriaDAO extends GenericDAO<subcategoria> {
+
+    public List<subcategoria> selecionarPorCat(int idCat) {
+        List<subcategoria> ListCat = super.getEntityManager()
+                .createQuery("SELECT sub FROM subcategoria sub WHERE sub.categoria_codigo.id = :idCat ", subcategoria.class)
+                .setParameter("idCat", idCat)
+                .getResultList();
+
+        return ListCat;
+    }
 }

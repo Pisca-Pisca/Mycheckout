@@ -42,11 +42,14 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
-        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_chamaGarcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_chamaGarcomActionPerformed(evt);
@@ -57,7 +60,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
-        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_bebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_bebidasActionPerformed(evt);
@@ -68,7 +71,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
-        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_entradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_entradasActionPerformed(evt);
@@ -79,7 +82,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
-        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosIndividuais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosIndividuaisActionPerformed(evt);
@@ -90,7 +93,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
-        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosCompartilhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosCompartilharActionPerformed(evt);
@@ -101,7 +104,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
-        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sobremesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sobremesaActionPerformed(evt);
@@ -112,7 +115,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
-        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_minhaConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_minhaContaActionPerformed(evt);
@@ -123,7 +126,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
-        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sairActionPerformed(evt);
@@ -134,7 +137,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_files.setBorderPainted(false);
         Btn_files.setContentAreaFilled(false);
-        Btn_files.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_files.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_files.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_filesActionPerformed(evt);
@@ -145,7 +148,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_combos.setBorderPainted(false);
         Btn_combos.setContentAreaFilled(false);
-        Btn_combos.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_combos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_combos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_combosActionPerformed(evt);
@@ -156,7 +159,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_parmegianas.setBorderPainted(false);
         Btn_parmegianas.setContentAreaFilled(false);
-        Btn_parmegianas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_parmegianas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_parmegianas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_parmegianasActionPerformed(evt);
@@ -167,7 +170,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
 
         Btn_acompanhamentos.setBorderPainted(false);
         Btn_acompanhamentos.setContentAreaFilled(false);
-        Btn_acompanhamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_acompanhamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_acompanhamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_acompanhamentosActionPerformed(evt);
@@ -190,21 +193,29 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
         UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_acompanhamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_acompanhamentosActionPerformed
-        UI_clientePratosIndividuaisAcompanhamentos acompanhamentos = new UI_clientePratosIndividuaisAcompanhamentos();
-        acompanhamentos.setVisible(true);
+        UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(9);
+        pratosIndividuais.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_acompanhamentosActionPerformed
 
     private void Btn_parmegianasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_parmegianasActionPerformed
-        UI_clientePratosIndividuaisParmegianas parmegianas = new UI_clientePratosIndividuaisParmegianas();
-        parmegianas.setVisible(true);
+        UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(8);
+        pratosIndividuais.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_parmegianasActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
@@ -214,31 +225,43 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
         UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
         UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
         UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
         UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
         minhaConta.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     private void Btn_filesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_filesActionPerformed
-        UI_clientePratosIndividuaisFiles files = new UI_clientePratosIndividuaisFiles();
-        files.setVisible(true);
+        UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(6);
+        pratosIndividuais.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_filesActionPerformed
 
     private void Btn_combosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_combosActionPerformed
-        UI_clientePratosIndividuaisCombos combos = new UI_clientePratosIndividuaisCombos();
-        combos.setVisible(true);
+        UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(7);
+        pratosIndividuais.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_combosActionPerformed
 
     /**

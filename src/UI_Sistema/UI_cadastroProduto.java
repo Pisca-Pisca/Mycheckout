@@ -12,6 +12,8 @@ import Entity.Categoria;
 import Entity.Produto;
 import Entity.subcategoria;
 import Utils.ManipularImagem;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
@@ -39,7 +41,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     public UI_cadastroProduto(Produto p) {
         initComponents();
         listarCategorias();
-        listarSubcategorias();
+        listarSubcategorias(1);
 
         produtoRetorno = p;
 
@@ -66,7 +68,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     public UI_cadastroProduto() {
         initComponents();
         listarCategorias();
-        listarSubcategorias();
+        listarSubcategorias(1);
     }
 
     private void listarCategorias() {
@@ -77,23 +79,32 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
             for (int i = 0; i < listCategoria.size(); i++) {
                 Sc_Categoria.addItem(listCategoria.get(i).getNome());
+                
+                Sc_Categoria.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        listarSubcategorias(Sc_Categoria.getSelectedIndex()+1);
+                    }
+                }
+            });
             }
         } catch (Exception ex) {
             Logger.getLogger(UI_cadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void listarSubcategorias() {
+    private void listarSubcategorias(int idcat) {
         try {
-            listSubcategoria = subcategoriaDao.selecionarTodos();
+            listSubcategoria = subcategoriaDao.selecionarPorCat(idcat);
+                        
+            Sc_Subcategoria.removeAllItems();
+            
+            for (int i = 0; i < listSubcategoria.size(); i++) {
+                Sc_Subcategoria.addItem(listSubcategoria.get(i).getNome());
+            }
         } catch (Exception ex) {
             Logger.getLogger(UI_cadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Sc_Subcategoria.removeAllItems();
-
-        for (int i = 0; i < listSubcategoria.size(); i++) {
-            Sc_Subcategoria.addItem(listSubcategoria.get(i).getNome());
         }
     }
 
