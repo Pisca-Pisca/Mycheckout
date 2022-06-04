@@ -195,9 +195,9 @@ public class UI_clientePratosCompartilharVisualizar extends javax.swing.JFrame {
         Tabela.getTableHeader().setReorderingAllowed(false);
         Scroll_Tabela.setViewportView(Tabela);
 
-        getContentPane().add(Scroll_Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 770, 500));
+        getContentPane().add(Scroll_Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 770, 470));
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_compartilharBaseItem.png"))); // NOI18N
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_compartilharVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

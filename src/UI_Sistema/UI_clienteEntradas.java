@@ -194,9 +194,9 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
         Scroll_Tabela.setViewportView(Tabela);
 
         getContentPane().add(Scroll_Tabela);
-        Scroll_Tabela.setBounds(220, 190, 770, 500);
+        Scroll_Tabela.setBounds(210, 220, 790, 470);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioEntradas.png"))); // NOI18N
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioEntradasVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
         Img_baseTela.setBounds(0, 0, 1025, 770);
 

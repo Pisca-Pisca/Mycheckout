@@ -176,7 +176,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="220" y="190" width="770" height="500"/>
+          <AbsoluteConstraints x="210" y="220" width="790" height="470"/>
         </Constraint>
       </Constraints>
 
@@ -198,7 +198,7 @@
     <Component class="javax.swing.JLabel" name="Img_baseTela">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Img/Img_CardapioEntradas.png"/>
+          <Image iconType="3" name="/Img/Img_CardapioEntradasVisualizar.png"/>
         </Property>
       </Properties>
       <Constraints>
