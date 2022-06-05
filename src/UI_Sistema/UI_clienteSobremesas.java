@@ -5,17 +5,62 @@
  */
 package UI_Sistema;
 
+import Dao.ProdutoDAO;
+import Entity.Produto;
+import Utils.ModeloTabela;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author jessi
  */
 public class UI_clienteSobremesas extends javax.swing.JFrame {
 
+    private final int idcategoria = 5;
+
     /**
      * Creates new form UI_clienteSobremesas
      */
     public UI_clienteSobremesas() {
         initComponents();
+        atualizarTabela();
+    }
+
+    private void atualizarTabela() {
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            List<Produto> listProduto = produtoDao.selecionarPorCat(idcategoria);
+
+            String[] columnName = {"Foto", "Nome", "Descrição", "Preço R$", "Preço 2 R$", "Preço 3 R$"};
+            Object[][] rows = new Object[listProduto.size()][6];
+
+            for (int i = 0; i < listProduto.size(); i++) {
+
+                if (listProduto.get(i).getFoto() != null) {
+                    ImageIcon image = new ImageIcon(new ImageIcon(listProduto.get(i).getFoto()).getImage().getScaledInstance(163, 88, 0));
+
+                    rows[i][0] = image;
+                } else {
+                    rows[i][0] = null;
+                }
+
+                rows[i][1] = listProduto.get(i).getNome();
+                rows[i][2] = listProduto.get(i).getDescricao();
+                rows[i][3] = listProduto.get(i).getPreco1();
+                rows[i][4] = listProduto.get(i).getPreco2();
+                rows[i][5] = listProduto.get(i).getPreco3();
+
+                ModeloTabela model = new ModeloTabela(rows, columnName);
+                Tabela.setModel(model);
+                Tabela.setRowHeight(88);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -35,14 +80,19 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Scroll_Tabela = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
-        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_chamaGarcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_chamaGarcomActionPerformed(evt);
@@ -64,7 +114,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
-        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_entradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_entradasActionPerformed(evt);
@@ -75,7 +125,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
-        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosIndividuais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosIndividuaisActionPerformed(evt);
@@ -86,7 +136,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
-        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosCompartilhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosCompartilharActionPerformed(evt);
@@ -97,7 +147,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
-        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sobremesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sobremesaActionPerformed(evt);
@@ -108,7 +158,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
-        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_minhaConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_minhaContaActionPerformed(evt);
@@ -119,7 +169,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
-        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sairActionPerformed(evt);
@@ -128,7 +178,25 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioSobremesas.png"))); // NOI18N
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        Tabela.setColumnSelectionAllowed(true);
+        Tabela.getTableHeader().setReorderingAllowed(false);
+        Scroll_Tabela.setViewportView(Tabela);
+
+        getContentPane().add(Scroll_Tabela);
+        Scroll_Tabela.setBounds(210, 220, 790, 470);
+
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioSobremesasVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
         Img_baseTela.setBounds(0, 0, 1025, 770);
 
@@ -140,8 +208,10 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
-     UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
+        UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
@@ -149,28 +219,38 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_sairActionPerformed
 
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
-    UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
+        UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
-     UI_clienteEntradas entradas = new UI_clienteEntradas();
+        UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
-    UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
+        UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
-     UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
+        UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
-    UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
-        minhaConta.setVisible(true);  
+        UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
+        minhaConta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     /**
@@ -218,5 +298,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
     private javax.swing.JButton Btn_sair;
     private javax.swing.JButton Btn_sobremesa;
     private javax.swing.JLabel Img_baseTela;
+    private javax.swing.JScrollPane Scroll_Tabela;
+    private javax.swing.JTable Tabela;
     // End of variables declaration//GEN-END:variables
 }
