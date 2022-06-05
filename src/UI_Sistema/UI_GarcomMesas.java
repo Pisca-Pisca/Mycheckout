@@ -58,18 +58,22 @@ public class UI_GarcomMesas extends javax.swing.JFrame {
 
         Btn_Receber.setBorderPainted(false);
         Btn_Receber.setContentAreaFilled(false);
+        Btn_Receber.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Receber, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 80, 130));
 
         Btn_Ativar.setBorderPainted(false);
         Btn_Ativar.setContentAreaFilled(false);
+        Btn_Ativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Ativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 80, 80));
 
         Btn_Voltar.setBorderPainted(false);
         Btn_Voltar.setContentAreaFilled(false);
+        Btn_Voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 630, 120, 40));
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 120, 30));
 
         Painel_Status.setBackground(new java.awt.Color(255, 255, 255));

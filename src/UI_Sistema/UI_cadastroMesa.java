@@ -79,30 +79,37 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
 
         Btn_Editar.setBorderPainted(false);
         Btn_Editar.setContentAreaFilled(false);
+        Btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 210, 60, 40));
 
         Btn_Add.setBorderPainted(false);
         Btn_Add.setContentAreaFilled(false);
-        getContentPane().add(Btn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 60, 40));
+        Btn_Add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 50, 40));
 
         Btn_Desativar.setBorderPainted(false);
         Btn_Desativar.setContentAreaFilled(false);
+        Btn_Desativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Desativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 80, 70));
 
         Btn_Excluir.setBorderPainted(false);
         Btn_Excluir.setContentAreaFilled(false);
+        Btn_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 60, 40));
 
         Btn_Ativar.setBorderPainted(false);
         Btn_Ativar.setContentAreaFilled(false);
+        Btn_Ativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Ativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 80, 80));
 
         Btn_Voltar.setBorderPainted(false);
         Btn_Voltar.setContentAreaFilled(false);
+        Btn_Voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 120, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CadastroMesas.png"))); // NOI18N

@@ -192,7 +192,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Btn_VisualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 220, 50, 50));
+        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 40, 40));
 
         Btn_Enviar.setBorderPainted(false);
         Btn_Enviar.setContentAreaFilled(false);
@@ -235,6 +235,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
         Sc_Categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sc_Categoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Sc_Categoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setPreferredSize(new java.awt.Dimension(419, 42));
@@ -259,25 +260,26 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Input_NomeActionPerformed(evt);
             }
         });
-        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 40));
+        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 30));
 
         Input_PrecoTrio.setBackground(new java.awt.Color(196, 196, 196));
         Input_PrecoTrio.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_PrecoTrio.setBorder(null);
-        getContentPane().add(Input_PrecoTrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 140, 42));
+        getContentPane().add(Input_PrecoTrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 510, 140, 30));
 
         Input_PrecoDupla.setBackground(new java.awt.Color(196, 196, 196));
         Input_PrecoDupla.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_PrecoDupla.setBorder(null);
-        getContentPane().add(Input_PrecoDupla, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 140, 42));
+        getContentPane().add(Input_PrecoDupla, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 512, 140, 30));
 
         Input_PrecoIndividual.setBackground(new java.awt.Color(196, 196, 196));
         Input_PrecoIndividual.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_PrecoIndividual.setBorder(null);
-        getContentPane().add(Input_PrecoIndividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 140, 42));
+        getContentPane().add(Input_PrecoIndividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 140, 30));
 
         Btn_Disponivel.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Btn_Disponivel.setText("Disponível");
+        Btn_Disponivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Disponivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Btn_DisponivelMouseClicked(evt);
@@ -307,7 +309,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         getContentPane().add(Ck_Individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 30, 30));
 
         Feedback_ArquivoImagem.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 576, 650, 40));
+        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 586, 650, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CadastroProduto.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

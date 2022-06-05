@@ -155,7 +155,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_combos);
-        Btn_combos.setBounds(210, 310, 790, 90);
+        Btn_combos.setBounds(210, 300, 790, 100);
 
         Btn_parmegianas.setBorderPainted(false);
         Btn_parmegianas.setContentAreaFilled(false);
@@ -177,7 +177,7 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_acompanhamentos);
-        Btn_acompanhamentos.setBounds(210, 590, 800, 90);
+        Btn_acompanhamentos.setBounds(210, 580, 800, 100);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioPratos_Individuais.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
