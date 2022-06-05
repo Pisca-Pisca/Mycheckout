@@ -5,11 +5,20 @@
  */
 package UI_Sistema.Modal;
 
+import Dao.UsuarioDAO;
+import Entity.Usuario;
+import Enum.Permissoes;
+import UI_Sistema.UI_adminTelaPrincipal;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nicol
  */
 public class UI_modalSenhaAdmin extends javax.swing.JDialog {
+
+    private Usuario usuarioLogado;
+    public static boolean senhaOk = false;
 
     /**
      * Creates new form UI_modalSenhaAdmin
@@ -43,17 +52,27 @@ public class UI_modalSenhaAdmin extends javax.swing.JDialog {
         Btn_Cancelar.setBorderPainted(false);
         Btn_Cancelar.setContentAreaFilled(false);
         Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 130, 20));
+        Btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_CancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 120, 20));
 
         Btn_Confirmar.setBorderPainted(false);
         Btn_Confirmar.setContentAreaFilled(false);
         Btn_Confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 130, 20));
+        Btn_Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ConfirmarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 120, 20));
 
         Input_Senha.setBackground(new java.awt.Color(196, 196, 196));
         Input_Senha.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_Senha.setBorder(null);
-        getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 260, 60));
+        getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 260, 50));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalSenhaAdmin.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -61,6 +80,36 @@ public class UI_modalSenhaAdmin extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_Btn_CancelarActionPerformed
+
+    private void Btn_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ConfirmarActionPerformed
+        String txtSenha = Input_Senha.getText();
+
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+
+        usuarioLogado = usuarioDao.verificaUsuário(txtSenha);
+        
+        
+        if (usuarioLogado != null) {
+            senhaOk = true;
+
+            if (usuarioLogado.getPermisao().equals(Permissoes.ADMIN.getPermissao())) {
+                UI_adminTelaPrincipal telaPrincipal = new UI_adminTelaPrincipal();
+                telaPrincipal.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Acesso Negado!");
+                dispose();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuário inválido!");
+            senhaOk = false;
+        }
+    }//GEN-LAST:event_Btn_ConfirmarActionPerformed
 
     /**
      * @param args the command line arguments

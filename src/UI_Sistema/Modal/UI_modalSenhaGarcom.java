@@ -5,11 +5,21 @@
  */
 package UI_Sistema.Modal;
 
+import Dao.UsuarioDAO;
+import Entity.Usuario;
+import Entity.Usuario_;
+import Enum.Permissoes;
+import UI_Sistema.UI_adminTelaPrincipal;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nicol
  */
 public class UI_modalSenhaGarcom extends javax.swing.JDialog {
+
+    Usuario usuarioLogado;
+    public static boolean senhaOk = false;
 
     /**
      * Creates new form UI_modalSenhaAdmin
@@ -47,6 +57,11 @@ public class UI_modalSenhaGarcom extends javax.swing.JDialog {
         Btn_Confirmar.setBorderPainted(false);
         Btn_Confirmar.setContentAreaFilled(false);
         Btn_Confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ConfirmarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 130, 20));
 
         Input_Senha.setBackground(new java.awt.Color(196, 196, 196));
@@ -60,6 +75,24 @@ public class UI_modalSenhaGarcom extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ConfirmarActionPerformed
+        String txtSenha = Input_Senha.getText();
+
+        UsuarioDAO usuarioDao = new UsuarioDAO();
+
+        usuarioLogado = usuarioDao.verificaUsuário(txtSenha);
+        if (usuarioLogado != null) {
+            UI_adminTelaPrincipal telaPrincipal = new UI_adminTelaPrincipal();
+            telaPrincipal.setVisible(true);
+            dispose();
+            senhaOk = true;
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuário inválido!");
+            senhaOk = false;
+        }
+    }//GEN-LAST:event_Btn_ConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
