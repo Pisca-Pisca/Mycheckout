@@ -23,4 +23,13 @@ public class ProdutoDAO extends GenericDAO<Produto> {
 
         return ListProd;
     }
+    
+    public Produto selecionarProdPorNome(String nome){
+        Produto produto = super.getEntityManager()
+                .createQuery("SELECT p FROM Produto p WHERE p.nome = :nome ", Produto.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+        
+        return produto;
+    }
 }

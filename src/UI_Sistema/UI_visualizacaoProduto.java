@@ -32,16 +32,15 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
             ProdutoDAO produtoDao = new ProdutoDAO();
             List<Produto> list = produtoDao.selecionarTodos();
             
-            String[] columnName = {"Código", "Nome", "Preço R$", "Preço 2 R$", "Preço 3 R$"};
-            Object[][] rows = new Object[list.size()][5];
+            String[] columnName = {"Código", "Nome", "Tempo de espera", "Preço R$"};
+            Object[][] rows = new Object[list.size()][4];
             
             for (int i = 0; i < list.size(); i++) {
                 
                 rows[i][0] = list.get(i).getId();
-                rows[i][1] = list.get(i).getNome();
-                rows[i][2] = list.get(i).getPreco1();
-                rows[i][3] = list.get(i).getPreco2();
-                rows[i][4] = list.get(i).getPreco3();
+                rows[i][1] = list.get(i).getId();
+                rows[i][2] = list.get(i).getTempoEspera();
+                rows[i][3] = list.get(i).getPreco();
             }
             
             ModeloTabela model = new ModeloTabela(rows, columnName);

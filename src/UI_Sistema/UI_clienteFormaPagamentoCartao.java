@@ -5,6 +5,10 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
+import Entity.Chamados_fila;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
+
 /**
  *
  * @author jessi
@@ -186,7 +190,12 @@ public class UI_clienteFormaPagamentoCartao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed

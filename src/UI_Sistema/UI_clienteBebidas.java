@@ -5,6 +5,10 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
+import Entity.Chamados_fila;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
+
 /**
  *
  * @author jessi
@@ -59,7 +63,7 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Btn_chamaGarcom);
-        Btn_chamaGarcom.setBounds(960, 90, 50, 50);
+        Btn_chamaGarcom.setBounds(960, 80, 50, 50);
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
@@ -202,13 +206,18 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
@@ -219,35 +228,35 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
         UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
         UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
         UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
         UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
         UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
         minhaConta.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 

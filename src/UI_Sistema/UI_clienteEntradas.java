@@ -5,8 +5,11 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
 import Dao.ProdutoDAO;
+import Entity.Chamados_fila;
 import Entity.Produto;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
 import Utils.ModeloTabela;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,13 +23,13 @@ import javax.swing.ImageIcon;
 public class UI_clienteEntradas extends javax.swing.JFrame {
 
     private final int idcategoria = 2;
-    
+
     /**
      * Creates new form UI_clienteEntradas
      */
     public UI_clienteEntradas() {
         initComponents();
-         atualizarTabela();
+        atualizarTabela();
     }
 
     private void atualizarTabela() {
@@ -34,8 +37,8 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
             ProdutoDAO produtoDao = new ProdutoDAO();
             List<Produto> listProduto = produtoDao.selecionarPorCat(idcategoria);
 
-            String[] columnName = {"Foto", "Nome", "Descrição", "Preço R$", "Preço 2 R$", "Preço 3 R$"};
-            Object[][] rows = new Object[listProduto.size()][6];
+            String[] columnName = {"Foto", "Nome", "Descrição", "Tempo Preparo", "Preço R$"};
+            Object[][] rows = new Object[listProduto.size()][5];
 
             for (int i = 0; i < listProduto.size(); i++) {
 
@@ -49,9 +52,8 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
 
                 rows[i][1] = listProduto.get(i).getNome();
                 rows[i][2] = listProduto.get(i).getDescricao();
-                rows[i][3] = listProduto.get(i).getPreco1();
-                rows[i][4] = listProduto.get(i).getPreco2();
-                rows[i][5] = listProduto.get(i).getPreco3();
+                rows[i][3] = listProduto.get(i).getTempoEspera();
+                rows[i][4] = listProduto.get(i).getPreco();
 
                 ModeloTabela model = new ModeloTabela(rows, columnName);
                 Tabela.setModel(model);
@@ -204,12 +206,19 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+        
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
-     UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
+        UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
@@ -217,28 +226,38 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_sairActionPerformed
 
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
-     UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
+        UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
-     UI_clienteEntradas entradas = new UI_clienteEntradas();
+        UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
-    UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
+        UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
-     UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
+        UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
-    UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
-        minhaConta.setVisible(true);  
+        UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
+        minhaConta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     /**

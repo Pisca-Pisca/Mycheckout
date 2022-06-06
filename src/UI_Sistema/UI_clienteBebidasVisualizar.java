@@ -5,8 +5,12 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
 import Dao.ProdutoDAO;
+import Entity.Chamados_fila;
 import Entity.Produto;
+import UI_Sistema.Modal.UI_ModalAddItemCarrinho;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
 import Utils.ModeloTabela;
 import java.util.List;
 import java.util.logging.Level;
@@ -41,8 +45,8 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
             ProdutoDAO produtoDao = new ProdutoDAO();
             List<Produto> listProduto = produtoDao.selecionarPorCatESub(idcategoria, idSubcategoria);
 
-            String[] columnName = {"Foto", "Nome", "Descrição", "Preço R$", "Preço 2 R$", "Preço 3 R$"};
-            Object[][] rows = new Object[listProduto.size()][6];
+            String[] columnName = {"Foto", "Nome", "Descrição", "Tempo Preparo", "Preço R$"};
+            Object[][] rows = new Object[listProduto.size()][5];
 
             for (int i = 0; i < listProduto.size(); i++) {
 
@@ -56,9 +60,8 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
 
                 rows[i][1] = listProduto.get(i).getNome();
                 rows[i][2] = listProduto.get(i).getDescricao();
-                rows[i][3] = listProduto.get(i).getPreco1();
-                rows[i][4] = listProduto.get(i).getPreco2();
-                rows[i][5] = listProduto.get(i).getPreco3();
+                rows[i][3] = listProduto.get(i).getPreco();
+                rows[i][4] = listProduto.get(i).getTempoEspera();
 
                 ModeloTabela model = new ModeloTabela(rows, columnName);
                 Tabela.setModel(model);
@@ -87,6 +90,7 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Btn_add_carrinho = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
         Img_baseTela = new javax.swing.JLabel();
@@ -192,6 +196,19 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
+        Btn_add_carrinho.setBorder(null);
+        Btn_add_carrinho.setContentAreaFilled(false);
+        Btn_add_carrinho.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_add_carrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_add_carrinhoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_add_carrinho);
+        Btn_add_carrinho.setBounds(860, 180, 140, 30);
+
+        Scroll_Tabela.setAutoscrolls(true);
+
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -203,7 +220,8 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
                 "Título 1", "Título 2", "Título 3"
             }
         ));
-        Tabela.setColumnSelectionAllowed(true);
+        Tabela.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        Tabela.setShowVerticalLines(true);
         Tabela.getTableHeader().setReorderingAllowed(false);
         Scroll_Tabela.setViewportView(Tabela);
         Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -220,13 +238,18 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
@@ -237,41 +260,52 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
         UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
         UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
         UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
         UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
         UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
         minhaConta.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void Btn_add_carrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_add_carrinhoActionPerformed
+        if (Tabela.getSelectedRow() != -1) {
+            String nomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
+            Produto produto;
+            produto = new ProdutoDAO().selecionarProdPorNome(nomeProduto);
+
+            UI_ModalAddItemCarrinho modalAddItem = new UI_ModalAddItemCarrinho(this, true, produto);
+            modalAddItem.setVisible(true);
+        }
+    }//GEN-LAST:event_Btn_add_carrinhoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,6 +358,7 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_add_carrinho;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;

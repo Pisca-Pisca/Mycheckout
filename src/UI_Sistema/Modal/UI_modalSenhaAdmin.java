@@ -39,7 +39,7 @@ public class UI_modalSenhaAdmin extends javax.swing.JDialog {
 
         Btn_Cancelar = new javax.swing.JButton();
         Btn_Confirmar = new javax.swing.JButton();
-        Input_Senha = new javax.swing.JTextField();
+        Input_Senha = new javax.swing.JPasswordField();
         Img_BaseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -72,7 +72,7 @@ public class UI_modalSenhaAdmin extends javax.swing.JDialog {
         Input_Senha.setBackground(new java.awt.Color(196, 196, 196));
         Input_Senha.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_Senha.setBorder(null);
-        getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 260, 50));
+        getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 270, 60));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalSenhaAdmin.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -157,6 +157,6 @@ public class UI_modalSenhaAdmin extends javax.swing.JDialog {
     private javax.swing.JButton Btn_Cancelar;
     private javax.swing.JButton Btn_Confirmar;
     private javax.swing.JLabel Img_BaseTela;
-    private javax.swing.JTextField Input_Senha;
+    private javax.swing.JPasswordField Input_Senha;
     // End of variables declaration//GEN-END:variables
 }

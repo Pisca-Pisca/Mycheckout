@@ -5,6 +5,10 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
+import Entity.Chamados_fila;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
+
 /**
  *
  * @author jessi
@@ -187,34 +191,39 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
         UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_acompanhamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_acompanhamentosActionPerformed
         UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(9);
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_acompanhamentosActionPerformed
 
     private void Btn_parmegianasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_parmegianasActionPerformed
         UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(8);
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_parmegianasActionPerformed
 
@@ -225,42 +234,42 @@ public class UI_clientePratosIndividuais extends javax.swing.JFrame {
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
         UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
         UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
         UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
         UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
         minhaConta.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     private void Btn_filesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_filesActionPerformed
         UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(6);
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_filesActionPerformed
 
     private void Btn_combosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_combosActionPerformed
         UI_clientePratosIndividuaisVisualizar pratosIndividuais = new UI_clientePratosIndividuaisVisualizar(7);
         pratosIndividuais.setVisible(true);
-        
+
         dispose();
     }//GEN-LAST:event_Btn_combosActionPerformed
 

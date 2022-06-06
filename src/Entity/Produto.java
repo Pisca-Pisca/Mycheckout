@@ -34,14 +34,11 @@ public class Produto implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "preco1")
-    private Double preco1;
-
-    @Column(name = "preco2")
-    private Double preco2;
-
-    @Column(name = "preco3")
-    private Double preco3;
+    @Column(name = "preco")
+    private Double preco;
+    
+    @Column(name =  "tempoEspera")
+    private String tempoEspera;
 
     @Column(name = "disponivel")
     private boolean disponivel;
@@ -68,13 +65,11 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(int id, String nome, String descricao, Double preco1, Double preco2, Double preco3, boolean disponivel, byte[] foto, Categoria categoria_codigo, subcategoria subcategoria_codigo) {
-        this.id = id;
+    public Produto(String nome, String descricao, Double preco, String tempoEspera, boolean disponivel, byte[] foto, Categoria categoria_codigo, subcategoria subcategoria_codigo) {
         this.nome = nome;
         this.descricao = descricao;
-        this.preco1 = preco1;
-        this.preco2 = preco2;
-        this.preco3 = preco3;
+        this.preco = preco;
+        this.tempoEspera = tempoEspera;
         this.disponivel = disponivel;
         this.foto = foto;
         this.categoria_codigo = categoria_codigo;
@@ -105,28 +100,20 @@ public class Produto implements Serializable {
         this.descricao = descricao;
     }
     
-    public Double getPreco1() {
-        return preco1;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setPreco1(Double preco1) {
-        this.preco1 = preco1;
+    public void setPreco(Double preco1) {
+        this.preco = preco1;
     }
 
-    public Double getPreco2() {
-        return preco2;
+    public String getTempoEspera() {
+        return tempoEspera;
     }
 
-    public void setPreco2(Double preco2) {
-        this.preco2 = preco2;
-    }
-
-    public Double getPreco3() {
-        return preco3;
-    }
-
-    public void setPreco3(Double preco3) {
-        this.preco3 = preco3;
+    public void setTempoEspera(String tempoEspera) {
+        this.tempoEspera = tempoEspera;
     }
 
     public boolean isDisponivel() {
