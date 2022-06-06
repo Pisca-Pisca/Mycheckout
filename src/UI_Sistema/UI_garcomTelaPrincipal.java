@@ -38,10 +38,12 @@ public class UI_garcomTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Mesas.setBorderPainted(false);
         Btn_Mesas.setContentAreaFilled(false);
+        Btn_Mesas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Mesas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 260, 370));
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SairActionPerformed(evt);
@@ -51,6 +53,7 @@ public class UI_garcomTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Chamados.setBorderPainted(false);
         Btn_Chamados.setContentAreaFilled(false);
+        Btn_Chamados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Chamados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ChamadosActionPerformed(evt);

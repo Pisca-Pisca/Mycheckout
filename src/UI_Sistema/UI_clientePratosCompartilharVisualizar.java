@@ -93,6 +93,7 @@ public class UI_clientePratosCompartilharVisualizar extends javax.swing.JFrame {
         Btn_add_carrinho = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
+        Btn_adicionar = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -212,6 +213,11 @@ public class UI_clientePratosCompartilharVisualizar extends javax.swing.JFrame {
         Scroll_Tabela.setViewportView(Tabela);
 
         getContentPane().add(Scroll_Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 770, 470));
+
+        Btn_adicionar.setBorderPainted(false);
+        Btn_adicionar.setContentAreaFilled(false);
+        Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 140, 30));
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_compartilharVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -93,6 +93,7 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
         Btn_add_carrinho = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
+        Btn_adicionar = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -229,7 +230,14 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
         getContentPane().add(Scroll_Tabela);
         Scroll_Tabela.setBounds(220, 220, 780, 470);
 
+        Btn_adicionar.setBorderPainted(false);
+        Btn_adicionar.setContentAreaFilled(false);
+        Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_adicionar);
+        Btn_adicionar.setBounds(860, 180, 140, 10);
+
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_bebidasVisualizar.png"))); // NOI18N
+        Img_baseTela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Img_baseTela);
         Img_baseTela.setBounds(0, 0, 1025, 789);
 

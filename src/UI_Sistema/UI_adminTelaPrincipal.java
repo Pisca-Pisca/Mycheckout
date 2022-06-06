@@ -41,6 +41,7 @@ public class UI_adminTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SairActionPerformed(evt);
@@ -50,6 +51,7 @@ public class UI_adminTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Mesas.setBorderPainted(false);
         Btn_Mesas.setContentAreaFilled(false);
+        Btn_Mesas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Mesas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_MesasActionPerformed(evt);
@@ -59,6 +61,7 @@ public class UI_adminTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Garçom.setBorderPainted(false);
         Btn_Garçom.setContentAreaFilled(false);
+        Btn_Garçom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Garçom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_GarçomActionPerformed(evt);
@@ -68,6 +71,7 @@ public class UI_adminTelaPrincipal extends javax.swing.JFrame {
 
         Btn_Produtos.setBorderPainted(false);
         Btn_Produtos.setContentAreaFilled(false);
+        Btn_Produtos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Produtos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ProdutosActionPerformed(evt);

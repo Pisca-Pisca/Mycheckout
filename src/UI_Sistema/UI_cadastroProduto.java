@@ -192,7 +192,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Btn_VisualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 220, 50, 50));
+        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 40, 40));
 
         Btn_Enviar.setBorderPainted(false);
         Btn_Enviar.setContentAreaFilled(false);
@@ -259,7 +259,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Input_NomeActionPerformed(evt);
             }
         });
-        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 40));
+        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 30));
 
         Input_TempoEspera.setBackground(new java.awt.Color(196, 196, 196));
         Input_TempoEspera.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
@@ -273,6 +273,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
         Btn_Disponivel.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Btn_Disponivel.setText("Disponível");
+        Btn_Disponivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Disponivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Btn_DisponivelMouseClicked(evt);
@@ -281,7 +282,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         getContentPane().add(Btn_Disponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 170, 40));
 
         Feedback_ArquivoImagem.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 576, 650, 40));
+        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 586, 650, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CadastroProduto.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -43,18 +43,18 @@ public class UI_clienteFormaPagamento extends javax.swing.JFrame {
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
-        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_chamaGarcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_chamaGarcomActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_chamaGarcom);
-        Btn_chamaGarcom.setBounds(961, 86, 50, 40);
+        Btn_chamaGarcom.setBounds(961, 86, 40, 40);
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
-        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sairActionPerformed(evt);
@@ -65,6 +65,7 @@ public class UI_clienteFormaPagamento extends javax.swing.JFrame {
 
         Btn_dinheiro.setBorderPainted(false);
         Btn_dinheiro.setContentAreaFilled(false);
+        Btn_dinheiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_dinheiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_dinheiroActionPerformed(evt);
@@ -75,6 +76,7 @@ public class UI_clienteFormaPagamento extends javax.swing.JFrame {
 
         Btn_cartao.setBorderPainted(false);
         Btn_cartao.setContentAreaFilled(false);
+        Btn_cartao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_cartao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_cartaoActionPerformed(evt);
@@ -85,6 +87,7 @@ public class UI_clienteFormaPagamento extends javax.swing.JFrame {
 
         Btn_pix.setBorderPainted(false);
         Btn_pix.setContentAreaFilled(false);
+        Btn_pix.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pix.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pixActionPerformed(evt);

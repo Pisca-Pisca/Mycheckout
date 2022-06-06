@@ -103,6 +103,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Voltar.setBorderPainted(false);
         Btn_Voltar.setContentAreaFilled(false);
+        Btn_Voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_VoltarActionPerformed(evt);
@@ -112,6 +113,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Add.setBorderPainted(false);
         Btn_Add.setContentAreaFilled(false);
+        Btn_Add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_AddActionPerformed(evt);
@@ -121,6 +123,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Excluir.setBorderPainted(false);
         Btn_Excluir.setContentAreaFilled(false);
+        Btn_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ExcluirActionPerformed(evt);
@@ -130,6 +133,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SairActionPerformed(evt);
@@ -139,14 +143,13 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Editar.setBorderPainted(false);
         Btn_Editar.setContentAreaFilled(false);
+        Btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_EditarActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 40, 40));
-
-        Scroll_Tabela.setViewportBorder(null);
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,7 +164,6 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         Tabela.setSelectionBackground(new java.awt.Color(196, 196, 196));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
         Tabela.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        Tabela.setShowVerticalLines(true);
         Scroll_Tabela.setViewportView(Tabela);
         Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (Tabela.getColumnModel().getColumnCount() > 0) {

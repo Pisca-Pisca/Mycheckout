@@ -85,6 +85,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         Btn_sair = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
+        Btn_adicionar = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
         Btn_add_carrinho = new javax.swing.JButton();
 
@@ -200,6 +201,12 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
         getContentPane().add(Scroll_Tabela);
         Scroll_Tabela.setBounds(210, 220, 790, 470);
+
+        Btn_adicionar.setBorderPainted(false);
+        Btn_adicionar.setContentAreaFilled(false);
+        Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_adicionar);
+        Btn_adicionar.setBounds(860, 180, 140, 10);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioSobremesasVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
