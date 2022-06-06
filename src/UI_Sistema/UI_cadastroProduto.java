@@ -28,6 +28,7 @@ import javax.swing.JFileChooser;
 public class UI_cadastroProduto extends javax.swing.JFrame {
 
     private BufferedImage imagem;
+    private byte[] foto;
 
     Produto produtoRetorno = null;
     ProdutoDAO produtoDao = new ProdutoDAO();
@@ -143,7 +144,13 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         produtoRetorno.setPreco(Double.parseDouble(Input_Preco.getText()));
         produtoRetorno.setTempoEspera(Input_TempoEspera.getText());
         produtoRetorno.setCategoria_codigo(categoriaProduto());
-        produtoRetorno.setSubcategoria_codigo(subcategoriaProduto());
+        produtoRetorno.setFoto(foto);
+        
+        if(Sc_Subcategoria.getSelectedItem() == null){
+            produtoRetorno.setSubcategoria_codigo(null);
+        }else{
+            produtoRetorno.setSubcategoria_codigo(subcategoriaProduto());
+        }
     }
 
     /**
@@ -227,15 +234,13 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
-        Sc_Categoria.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Sc_Categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sc_Categoria.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Sc_Categoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setPreferredSize(new java.awt.Dimension(419, 42));
         getContentPane().add(Sc_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 430, 50));
 
-        Sc_Subcategoria.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Sc_Subcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sc_Subcategoria.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Sc_Subcategoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Subcategoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Subcategoria.setPreferredSize(new java.awt.Dimension(419, 42));
@@ -259,7 +264,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         Input_TempoEspera.setBackground(new java.awt.Color(196, 196, 196));
         Input_TempoEspera.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Input_TempoEspera.setBorder(null);
-        getContentPane().add(Input_TempoEspera, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 492, 370, 40));
+        getContentPane().add(Input_TempoEspera, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 370, 40));
 
         Input_Preco.setBackground(new java.awt.Color(196, 196, 196));
         Input_Preco.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
@@ -301,7 +306,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
                 Feedback_ArquivoImagem.setText("Imagem enviada com sucesso.");
 
-                produtoRetorno.setFoto(ManipularImagem.getImgBytes(imagem));
+                foto = ManipularImagem.getImgBytes(imagem);
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());

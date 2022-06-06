@@ -9,6 +9,7 @@ import Dao.Chamados_filaDAO;
 import Dao.ProdutoDAO;
 import Entity.Chamados_fila;
 import Entity.Produto;
+import UI_Sistema.Modal.UI_ModalAddItemCarrinho;
 import UI_Sistema.Modal.UI_modalChamarGarcom;
 import Utils.ModeloTabela;
 import java.util.List;
@@ -89,12 +90,15 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Btn_add_carrinho = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1024, 768));
+        setUndecorated(true);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -182,6 +186,16 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 720, 120, 30));
 
+        Btn_add_carrinho.setBorder(null);
+        Btn_add_carrinho.setContentAreaFilled(false);
+        Btn_add_carrinho.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_add_carrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_add_carrinhoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_add_carrinho, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 180, 140, 30));
+
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -193,7 +207,6 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
 
             }
         ));
-        Tabela.setColumnSelectionAllowed(true);
         Tabela.setShowVerticalLines(true);
         Tabela.getTableHeader().setReorderingAllowed(false);
         Scroll_Tabela.setViewportView(Tabela);
@@ -204,6 +217,7 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
         getContentPane().add(Img_baseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
@@ -258,6 +272,17 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void Btn_add_carrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_add_carrinhoActionPerformed
+        if (Tabela.getSelectedRow() != -1) {
+            String nomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
+            Produto produto;
+            produto = new ProdutoDAO().selecionarProdPorNome(nomeProduto);
+
+            UI_ModalAddItemCarrinho modalAddItem = new UI_ModalAddItemCarrinho(this, true, produto);
+            modalAddItem.setVisible(true);
+        }
+    }//GEN-LAST:event_Btn_add_carrinhoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,6 +351,7 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_add_carrinho;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;

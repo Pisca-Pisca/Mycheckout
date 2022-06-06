@@ -51,6 +51,7 @@ public class UI_clientePratosCompartilhar extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1024, 768));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1024, 768));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
@@ -198,7 +199,7 @@ public class UI_clientePratosCompartilhar extends javax.swing.JFrame {
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioPratosCompartilhar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 746);
+        Img_baseTela.setBounds(0, 0, 1025, 790);
 
         pack();
         setLocationRelativeTo(null);

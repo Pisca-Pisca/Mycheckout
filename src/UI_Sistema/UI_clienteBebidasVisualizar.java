@@ -60,8 +60,8 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
 
                 rows[i][1] = listProduto.get(i).getNome();
                 rows[i][2] = listProduto.get(i).getDescricao();
-                rows[i][3] = listProduto.get(i).getPreco();
-                rows[i][4] = listProduto.get(i).getTempoEspera();
+                rows[i][3] = listProduto.get(i).getTempoEspera();
+                rows[i][4] = listProduto.get(i).getPreco();
 
                 ModeloTabela model = new ModeloTabela(rows, columnName);
                 Tabela.setModel(model);

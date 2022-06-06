@@ -6,14 +6,11 @@
 package UI_Sistema;
 
 import Dao.MesaDAO;
-import Dao.ProdutoDAO;
 import Entity.Mesa;
-import Entity.Produto;
 import Utils.ModeloTabela;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 
 /**
  *

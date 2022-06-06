@@ -5,18 +5,38 @@
  */
 package UI_Sistema.Modal;
 
+import Entity.Produto;
+
 /**
  *
  * @author nicol
  */
 public class UI_ModalDividirPessoas extends javax.swing.JDialog {
+    
+    Produto produtoModal;
+    Double precoModal, precoPorPessoaModal;
+    int qtdItemModal, qtdPessoaModal;
 
     /**
      * Creates new form UI_ModalAddItemCarrinho
      */
-    public UI_ModalDividirPessoas(java.awt.Frame parent, boolean modal) {
+    public UI_ModalDividirPessoas(java.awt.Frame parent, boolean modal, Produto produto, Double preco, int qtdItem){
         super(parent, modal);
         initComponents();
+
+        this.produtoModal = produto;
+        this.precoModal = preco;
+        this.qtdItemModal = qtdItem;
+        
+        this.qtdPessoaModal = 1;
+        this.precoPorPessoaModal = preco;
+        
+        populaModal();
+    }
+    
+    private void populaModal() {
+        Txt_QtdPessoas.setText("1");
+        Txt_ValorItem.setText(String.valueOf(precoModal));
     }
 
     /**
@@ -29,35 +49,58 @@ public class UI_ModalDividirPessoas extends javax.swing.JDialog {
     private void initComponents() {
 
         Btn_Adicionar = new javax.swing.JButton();
+        Btn_Cancelar = new javax.swing.JButton();
         Btn_RetirarItem = new javax.swing.JButton();
         Btn_AdicionarItem = new javax.swing.JButton();
-        Btn_Cancelar = new javax.swing.JButton();
         Txt_QtdPessoas = new javax.swing.JLabel();
         Txt_ValorItem = new javax.swing.JLabel();
+        Txt_R$ = new javax.swing.JLabel();
         Img_BaseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btn_Adicionar.setBorderPainted(false);
         Btn_Adicionar.setContentAreaFilled(false);
         Btn_Adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_AdicionarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 140, 30));
+
+        Btn_Cancelar.setBorderPainted(false);
+        Btn_Cancelar.setContentAreaFilled(false);
+        Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_CancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 130, 30));
 
         Btn_RetirarItem.setBorderPainted(false);
         Btn_RetirarItem.setContentAreaFilled(false);
         Btn_RetirarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_RetirarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RetirarItemActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_RetirarItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 30, 20));
 
         Btn_AdicionarItem.setBorderPainted(false);
         Btn_AdicionarItem.setContentAreaFilled(false);
         Btn_AdicionarItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_AdicionarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_AdicionarItemActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_AdicionarItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 30, 20));
-
-        Btn_Cancelar.setBorderPainted(false);
-        Btn_Cancelar.setContentAreaFilled(false);
-        Btn_Cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(Btn_Cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 130, 30));
 
         Txt_QtdPessoas.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         Txt_QtdPessoas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -68,12 +111,55 @@ public class UI_ModalDividirPessoas extends javax.swing.JDialog {
         Txt_ValorItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(Txt_ValorItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 140, 20));
 
+        Txt_R$.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        Txt_R$.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Txt_R$.setText("R$");
+        getContentPane().add(Txt_R$, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 100, 20));
+
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Igm_ModalDividirPorPessoas.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Btn_RetirarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RetirarItemActionPerformed
+        this.qtdPessoaModal = Integer.parseInt(Txt_QtdPessoas.getText());
+        this.precoPorPessoaModal = Double.parseDouble(Txt_ValorItem.getText());
+        
+        this.qtdPessoaModal--;
+        this.precoPorPessoaModal *= this.qtdPessoaModal;
+
+        if (this.qtdPessoaModal <= 1) {
+            Txt_ValorItem.setText(String.valueOf(precoModal));
+            Txt_QtdPessoas.setText("1");
+        } else {
+            Txt_QtdPessoas.setText(String.valueOf(this.qtdPessoaModal));
+            Txt_ValorItem.setText(String.valueOf(this.precoPorPessoaModal));
+        }
+    }//GEN-LAST:event_Btn_RetirarItemActionPerformed
+
+    private void Btn_AdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AdicionarItemActionPerformed
+        this.qtdPessoaModal = Integer.parseInt(Txt_QtdPessoas.getText());
+        this.precoPorPessoaModal = Double.parseDouble(Txt_ValorItem.getText());
+        
+        this.qtdPessoaModal++;
+        this.precoPorPessoaModal /= this.qtdPessoaModal;
+
+        Txt_QtdPessoas.setText(String.valueOf(this.qtdPessoaModal));
+        Txt_ValorItem.setText(String.valueOf(this.precoPorPessoaModal));
+    }//GEN-LAST:event_Btn_AdicionarItemActionPerformed
+
+    private void Btn_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_Btn_CancelarActionPerformed
+
+    private void Btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AdicionarActionPerformed
+        UI_ModalConfirmarPedidoCompartilhado modalConfirmar = new UI_ModalConfirmarPedidoCompartilhado(null, true, produtoModal, precoModal, qtdItemModal, precoPorPessoaModal, qtdPessoaModal);
+        modalConfirmar.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_Btn_AdicionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,7 +192,7 @@ public class UI_ModalDividirPessoas extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                UI_ModalDividirPessoas dialog = new UI_ModalDividirPessoas(new javax.swing.JFrame(), true);
+                UI_ModalDividirPessoas dialog = new UI_ModalDividirPessoas(new javax.swing.JFrame(), true, null, 0.0, 0);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -125,6 +211,7 @@ public class UI_ModalDividirPessoas extends javax.swing.JDialog {
     private javax.swing.JButton Btn_RetirarItem;
     private javax.swing.JLabel Img_BaseTela;
     private javax.swing.JLabel Txt_QtdPessoas;
+    private javax.swing.JLabel Txt_R$;
     private javax.swing.JLabel Txt_ValorItem;
     // End of variables declaration//GEN-END:variables
 }

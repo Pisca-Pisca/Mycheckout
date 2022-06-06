@@ -7,8 +7,6 @@ package UI_Sistema.Modal;
 
 import Entity.Produto;
 import Utils.ManipularImagem;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,6 +15,8 @@ import javax.swing.ImageIcon;
 public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
 
     Produto produtoModal;
+    Double preco;
+    int qtdItem = 1;
 
     /**
      * Creates new form UI_ModalAddItemCarrinho
@@ -26,6 +26,7 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
         initComponents();
 
         this.produtoModal = produto;
+        this.preco = produtoModal.getPreco();
         populaModal();
     }
 
@@ -52,6 +53,7 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
         Txt_QtdItem = new javax.swing.JLabel();
         Txt_NomeProduto = new javax.swing.JLabel();
         Txt_ValorItem = new javax.swing.JLabel();
+        Txt_R$ = new javax.swing.JLabel();
         Img_Produto = new javax.swing.JLabel();
         Img_BaseTela = new javax.swing.JLabel();
 
@@ -63,6 +65,11 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
         Btn_Adicionar.setBorderPainted(false);
         Btn_Adicionar.setContentAreaFilled(false);
         Btn_Adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_AdicionarActionPerformed(evt);
+            }
+        });
         getContentPane().add(Btn_Adicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 140, 30));
 
         Btn_RetirarItem.setBorderPainted(false);
@@ -102,9 +109,15 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
         Txt_NomeProduto.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         getContentPane().add(Txt_NomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 250, 20));
 
-        Txt_ValorItem.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        Txt_ValorItem.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Txt_ValorItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(Txt_ValorItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 100, 20));
+        Txt_ValorItem.setToolTipText("");
+        getContentPane().add(Txt_ValorItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 90, 20));
+
+        Txt_R$.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        Txt_R$.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Txt_R$.setText("R$");
+        getContentPane().add(Txt_R$, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 100, 20));
         getContentPane().add(Img_Produto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 90));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalAddItemCarrinho.png"))); // NOI18N
@@ -119,12 +132,39 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
     }//GEN-LAST:event_Btn_CancelarActionPerformed
 
     private void Btn_AdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AdicionarItemActionPerformed
+        this.qtdItem = Integer.parseInt(Txt_QtdItem.getText());
+        this.preco= Double.parseDouble(Txt_ValorItem.getText());
         
+        this.qtdItem++;
+        this.preco *= this.qtdItem;
+
+        Txt_QtdItem.setText(String.valueOf(this.qtdItem));
+        Txt_ValorItem.setText(String.valueOf(this.preco));
     }//GEN-LAST:event_Btn_AdicionarItemActionPerformed
 
     private void Btn_RetirarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RetirarItemActionPerformed
-        // TODO add your handling code here:
+        this.qtdItem = Integer.parseInt(Txt_QtdItem.getText());
+        this.preco = Double.parseDouble(Txt_ValorItem.getText());
+       
+        this.qtdItem--;
+        this.preco /= this.qtdItem;
+
+        if (this.qtdItem <= 1) {
+            Txt_ValorItem.setText(String.valueOf(produtoModal.getPreco()));
+            Txt_QtdItem.setText("1");
+        } else {
+            Txt_QtdItem.setText(String.valueOf(this.qtdItem));
+            Txt_ValorItem.setText(String.valueOf(this.preco));
+        }
+
     }//GEN-LAST:event_Btn_RetirarItemActionPerformed
+
+    private void Btn_AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_AdicionarActionPerformed
+        UI_ModalDividirPessoas modalDividir = new UI_ModalDividirPessoas(null, true, produtoModal, preco, qtdItem);
+        modalDividir.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_Btn_AdicionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +217,7 @@ public class UI_ModalAddItemCarrinho extends javax.swing.JDialog {
     private javax.swing.JLabel Img_Produto;
     private javax.swing.JLabel Txt_NomeProduto;
     private javax.swing.JLabel Txt_QtdItem;
+    private javax.swing.JLabel Txt_R$;
     private javax.swing.JLabel Txt_ValorItem;
     // End of variables declaration//GEN-END:variables
 }
