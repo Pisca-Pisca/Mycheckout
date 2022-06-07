@@ -7,11 +7,11 @@ package UI_Sistema;
 
 import Dao.ProdutoDAO;
 import Entity.Produto;
-import Utils.ModeloTabela;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -29,30 +29,28 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
     private void montarTabela() {
         try {
+            DefaultTableModel modelo = (DefaultTableModel) Tabela.getModel();
+            modelo.setNumRows(0);
+            Tabela.setRowSorter(new TableRowSorter(modelo));
+
             ProdutoDAO produtoDao = new ProdutoDAO();
-            List<Produto> list = produtoDao.selecionarTodos();
-            
-            String[] columnName = {"Código", "Nome", "Preço R$", "Preço 2 R$", "Preço 3 R$"};
-            Object[][] rows = new Object[list.size()][5];
-            
-            for (int i = 0; i < list.size(); i++) {
-                
-                rows[i][0] = list.get(i).getId();
-                rows[i][1] = list.get(i).getNome();
-                rows[i][2] = list.get(i).getPreco1();
-                rows[i][3] = list.get(i).getPreco2();
-                rows[i][4] = list.get(i).getPreco3();
+
+            for (Produto p : produtoDao.selecionarTodos()) {
+
+                modelo.addRow(new Object[]{
+                    p.getId(),
+                    p.getNome(),
+                    p.getTempoEspera(),
+                    p.getPreco()
+
+                });
             }
-            
-            ModeloTabela model = new ModeloTabela(rows, columnName);
-            Tabela.setModel(model);
-            Tabela.setRowHeight(60);
         } catch (Exception ex) {
             Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void deletarproduto(){ 
+
+    private void deletarproduto() {
         Produto produtoRetorno = new Produto();
         ProdutoDAO pdao = new ProdutoDAO();
         int id;
@@ -63,8 +61,8 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         pdao.excluir(produtoRetorno);
     }
-        
-    private void editarproduto(){
+
+    private void editarproduto() {
         Produto produtoRetorno = new Produto();
         ProdutoDAO pdao = new ProdutoDAO();
         int id;
@@ -72,7 +70,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         id = Integer.parseInt(Tabela.getValueAt(Tabela.getSelectedRow(), 0).toString());
 
         produtoRetorno = pdao.selecionarPorCodigo(id);
-        
+
         UI_cadastroProduto cadastroProd = new UI_cadastroProduto(produtoRetorno);
         cadastroProd.setVisible(true);
         dispose();
@@ -105,6 +103,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Voltar.setBorderPainted(false);
         Btn_Voltar.setContentAreaFilled(false);
+        Btn_Voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_VoltarActionPerformed(evt);
@@ -114,6 +113,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Add.setBorderPainted(false);
         Btn_Add.setContentAreaFilled(false);
+        Btn_Add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_AddActionPerformed(evt);
@@ -123,6 +123,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Excluir.setBorderPainted(false);
         Btn_Excluir.setContentAreaFilled(false);
+        Btn_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_ExcluirActionPerformed(evt);
@@ -132,6 +133,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SairActionPerformed(evt);
@@ -141,6 +143,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
 
         Btn_Editar.setBorderPainted(false);
         Btn_Editar.setContentAreaFilled(false);
+        Btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_EditarActionPerformed(evt);
@@ -148,25 +151,25 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 40, 40));
 
-        Scroll_Tabela.setViewportBorder(null);
-
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Nome", "Tempo de espera", "Preço R$"
             }
         ));
+        Tabela.setColumnSelectionAllowed(true);
         Tabela.setName(""); // NOI18N
         Tabela.setSelectionBackground(new java.awt.Color(196, 196, 196));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
         Tabela.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        Tabela.setShowVerticalLines(true);
         Scroll_Tabela.setViewportView(Tabela);
+        Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (Tabela.getColumnModel().getColumnCount() > 0) {
+            Tabela.getColumnModel().getColumn(0).setResizable(false);
+            Tabela.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         getContentPane().add(Scroll_Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 268, 940, 330));
 
@@ -201,7 +204,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_EditarActionPerformed
 
     private void Btn_ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ExcluirActionPerformed
-         if (Tabela.getSelectedRow() != - 1) {
+        if (Tabela.getSelectedRow() != - 1) {
             deletarproduto();
             montarTabela();
         } else {
@@ -223,16 +226,24 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_visualizacaoProduto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -241,8 +252,10 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
             public void run() {
                 try {
                     new UI_visualizacaoProduto().setVisible(true);
+
                 } catch (Exception ex) {
-                    Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UI_visualizacaoProduto.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

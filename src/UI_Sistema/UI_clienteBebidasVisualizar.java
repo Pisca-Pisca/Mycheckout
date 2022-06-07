@@ -5,17 +5,72 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
+import Dao.ProdutoDAO;
+import Entity.Chamados_fila;
+import Entity.Produto;
+import UI_Sistema.Modal.UI_ModalAddItemCarrinho;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
+import Utils.ModeloTabela;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author jessi
  */
-public class UI_clienteBebidasAguas extends javax.swing.JFrame {
+public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
+
+    private int idSubcategoria;
+    private final int idcategoria = 1;
 
     /**
      * Creates new form UI_clienteBebidasRefrigerantes
      */
-    public UI_clienteBebidasAguas() {
+    public UI_clienteBebidasVisualizar() {
         initComponents();
+    }
+
+    public UI_clienteBebidasVisualizar(int id) {
+        initComponents();
+
+        this.idSubcategoria = id;
+        atualizarTabela();
+    }
+
+    private void atualizarTabela() {
+        try {
+            ProdutoDAO produtoDao = new ProdutoDAO();
+            List<Produto> listProduto = produtoDao.selecionarPorCatESub(idcategoria, idSubcategoria);
+
+            String[] columnName = {"Foto", "Nome", "Descrição", "Tempo Preparo", "Preço R$"};
+            Object[][] rows = new Object[listProduto.size()][5];
+
+            for (int i = 0; i < listProduto.size(); i++) {
+
+                if (listProduto.get(i).getFoto() != null) {
+                    ImageIcon image = new ImageIcon(new ImageIcon(listProduto.get(i).getFoto()).getImage().getScaledInstance(163, 88, 0));
+
+                    rows[i][0] = image;
+                } else {
+                    rows[i][0] = null;
+                }
+
+                rows[i][1] = listProduto.get(i).getNome();
+                rows[i][2] = listProduto.get(i).getDescricao();
+                rows[i][3] = listProduto.get(i).getTempoEspera();
+                rows[i][4] = listProduto.get(i).getPreco();
+
+                ModeloTabela model = new ModeloTabela(rows, columnName);
+                Tabela.setModel(model);
+                Tabela.setRowHeight(88);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -35,14 +90,28 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
         Btn_sobremesa = new javax.swing.JButton();
         Btn_minhaConta = new javax.swing.JButton();
         Btn_sair = new javax.swing.JButton();
+        Btn_add_carrinho = new javax.swing.JButton();
+        Scroll_Tabela = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
+        Btn_adicionar = new javax.swing.JButton();
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1025, 768));
+        setMinimumSize(new java.awt.Dimension(1025, 768));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1025, 768));
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
-        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_chamaGarcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_chamaGarcomActionPerformed(evt);
@@ -64,7 +133,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
-        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_entradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_entradasActionPerformed(evt);
@@ -75,7 +144,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
-        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosIndividuais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosIndividuaisActionPerformed(evt);
@@ -86,7 +155,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
-        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosCompartilhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosCompartilharActionPerformed(evt);
@@ -97,7 +166,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
-        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sobremesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sobremesaActionPerformed(evt);
@@ -108,7 +177,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
-        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_minhaConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_minhaContaActionPerformed(evt);
@@ -119,7 +188,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
-        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sairActionPerformed(evt);
@@ -128,20 +197,68 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
         getContentPane().add(Btn_sair);
         Btn_sair.setBounds(890, 720, 120, 30);
 
-        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_bebidasBaseItem.png"))); // NOI18N
+        Btn_add_carrinho.setBorder(null);
+        Btn_add_carrinho.setContentAreaFilled(false);
+        Btn_add_carrinho.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_add_carrinho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_add_carrinhoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_add_carrinho);
+        Btn_add_carrinho.setBounds(860, 180, 140, 30);
+
+        Scroll_Tabela.setAutoscrolls(true);
+
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Título 1", "Título 2", "Título 3"
+            }
+        ));
+        Tabela.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        Tabela.setShowVerticalLines(true);
+        Tabela.getTableHeader().setReorderingAllowed(false);
+        Scroll_Tabela.setViewportView(Tabela);
+        Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        getContentPane().add(Scroll_Tabela);
+        Scroll_Tabela.setBounds(220, 220, 780, 470);
+
+        Btn_adicionar.setBorderPainted(false);
+        Btn_adicionar.setContentAreaFilled(false);
+        Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_adicionar);
+        Btn_adicionar.setBounds(860, 180, 140, 10);
+
+        Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_bebidasVisualizar.png"))); // NOI18N
+        Img_baseTela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 768);
+        Img_baseTela.setBounds(0, 0, 1025, 789);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
-    UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
+        UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
@@ -149,29 +266,54 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_sairActionPerformed
 
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
-    UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
+        UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
-    UI_clienteEntradas entradas = new UI_clienteEntradas();
+        UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
-    UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
+        UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
-     UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
+        UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
-    UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
-        minhaConta.setVisible(true);  
+        UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
+        minhaConta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void Btn_add_carrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_add_carrinhoActionPerformed
+        if (Tabela.getSelectedRow() != -1) {
+            String nomeProduto = Tabela.getValueAt(Tabela.getSelectedRow(), 1).toString();
+            Produto produto;
+            produto = new ProdutoDAO().selecionarProdPorNome(nomeProduto);
+
+            UI_ModalAddItemCarrinho modalAddItem = new UI_ModalAddItemCarrinho(this, true, produto);
+            modalAddItem.setVisible(true);
+        }
+    }//GEN-LAST:event_Btn_add_carrinhoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,14 +332,26 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteBebidasAguas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasVisualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteBebidasAguas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasVisualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteBebidasAguas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasVisualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UI_clienteBebidasAguas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UI_clienteBebidasVisualizar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -206,12 +360,13 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UI_clienteBebidasAguas().setVisible(true);
+                new UI_clienteBebidasVisualizar(0).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_add_carrinho;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;
@@ -221,5 +376,7 @@ public class UI_clienteBebidasAguas extends javax.swing.JFrame {
     private javax.swing.JButton Btn_sair;
     private javax.swing.JButton Btn_sobremesa;
     private javax.swing.JLabel Img_baseTela;
+    private javax.swing.JScrollPane Scroll_Tabela;
+    private javax.swing.JTable Tabela;
     // End of variables declaration//GEN-END:variables
 }

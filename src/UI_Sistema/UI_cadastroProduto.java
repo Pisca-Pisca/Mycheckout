@@ -12,6 +12,8 @@ import Entity.Categoria;
 import Entity.Produto;
 import Entity.subcategoria;
 import Utils.ManipularImagem;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
@@ -26,6 +28,7 @@ import javax.swing.JFileChooser;
 public class UI_cadastroProduto extends javax.swing.JFrame {
 
     private BufferedImage imagem;
+    private byte[] foto;
 
     Produto produtoRetorno = null;
     ProdutoDAO produtoDao = new ProdutoDAO();
@@ -39,16 +42,15 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     public UI_cadastroProduto(Produto p) {
         initComponents();
         listarCategorias();
-        listarSubcategorias();
+        listarSubcategorias(1);
 
         produtoRetorno = p;
 
         if (produtoRetorno.getId() != 0) {
             Input_Descricao.setText(produtoRetorno.getDescricao());
             Input_Nome.setText(produtoRetorno.getNome());
-            Input_PrecoDupla.setText(String.valueOf(produtoRetorno.getPreco2()));
-            Input_PrecoIndividual.setText(String.valueOf(produtoRetorno.getPreco1()));
-            Input_PrecoTrio.setText(String.valueOf(produtoRetorno.getPreco3()));
+            Input_Preco.setText(String.valueOf(produtoRetorno.getPreco()));
+            Input_TempoEspera.setText(String.valueOf(produtoRetorno.getTempoEspera()));
 
             Sc_Categoria.setSelectedItem(produtoRetorno.getCategoria_codigo());
             Sc_Subcategoria.setSelectedItem(produtoRetorno.getSubcategoria_codigo());
@@ -66,7 +68,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     public UI_cadastroProduto() {
         initComponents();
         listarCategorias();
-        listarSubcategorias();
+        listarSubcategorias(1);
     }
 
     private void listarCategorias() {
@@ -77,32 +79,40 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
             for (int i = 0; i < listCategoria.size(); i++) {
                 Sc_Categoria.addItem(listCategoria.get(i).getNome());
+                
+                Sc_Categoria.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    if (e.getStateChange() == ItemEvent.SELECTED) {
+                        listarSubcategorias(Sc_Categoria.getSelectedIndex()+1);
+                    }
+                }
+            });
             }
         } catch (Exception ex) {
             Logger.getLogger(UI_cadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void listarSubcategorias() {
+    private void listarSubcategorias(int idcat) {
         try {
-            listSubcategoria = subcategoriaDao.selecionarTodos();
+            listSubcategoria = subcategoriaDao.selecionarPorCat(idcat);
+                        
+            Sc_Subcategoria.removeAllItems();
+            
+            for (int i = 0; i < listSubcategoria.size(); i++) {
+                Sc_Subcategoria.addItem(listSubcategoria.get(i).getNome());
+            }
         } catch (Exception ex) {
             Logger.getLogger(UI_cadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        Sc_Subcategoria.removeAllItems();
-
-        for (int i = 0; i < listSubcategoria.size(); i++) {
-            Sc_Subcategoria.addItem(listSubcategoria.get(i).getNome());
         }
     }
 
     private void limparCampos() {
         Input_Descricao.setText("");
         Input_Nome.setText("");
-        Input_PrecoDupla.setText("");
-        Input_PrecoIndividual.setText("");
-        Input_PrecoTrio.setText("");
+        Input_TempoEspera.setText("");
+        Input_Preco.setText("");
     }
 
     private Categoria categoriaProduto() {
@@ -131,11 +141,16 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         produtoRetorno.setDescricao(Input_Descricao.getText());
         produtoRetorno.setNome(Input_Nome.getText());
         produtoRetorno.setDisponivel(disponivel);
-        produtoRetorno.setPreco1(Double.parseDouble(Input_PrecoIndividual.getText()));
-        produtoRetorno.setPreco2(Double.parseDouble(Input_PrecoDupla.getText()));
-        produtoRetorno.setPreco3(Double.parseDouble(Input_PrecoTrio.getText()));
+        produtoRetorno.setPreco(Double.parseDouble(Input_Preco.getText()));
+        produtoRetorno.setTempoEspera(Input_TempoEspera.getText());
         produtoRetorno.setCategoria_codigo(categoriaProduto());
-        produtoRetorno.setSubcategoria_codigo(subcategoriaProduto());
+        produtoRetorno.setFoto(foto);
+        
+        if(Sc_Subcategoria.getSelectedItem() == null){
+            produtoRetorno.setSubcategoria_codigo(null);
+        }else{
+            produtoRetorno.setSubcategoria_codigo(subcategoriaProduto());
+        }
     }
 
     /**
@@ -156,13 +171,9 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         Sc_Subcategoria = new javax.swing.JComboBox<>();
         Input_Descricao = new javax.swing.JTextField();
         Input_Nome = new javax.swing.JTextField();
-        Input_PrecoTrio = new javax.swing.JTextField();
-        Input_PrecoDupla = new javax.swing.JTextField();
-        Input_PrecoIndividual = new javax.swing.JTextField();
+        Input_TempoEspera = new javax.swing.JTextField();
+        Input_Preco = new javax.swing.JTextField();
         Btn_Disponivel = new javax.swing.JToggleButton();
-        Ck_Trio = new javax.swing.JRadioButton();
-        Ck_Dupla = new javax.swing.JRadioButton();
-        Ck_Individual = new javax.swing.JRadioButton();
         Feedback_ArquivoImagem = new javax.swing.JLabel();
         Img_BaseTela = new javax.swing.JLabel();
 
@@ -181,7 +192,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Btn_VisualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 220, 50, 50));
+        getContentPane().add(Btn_Visualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 40, 40));
 
         Btn_Enviar.setBorderPainted(false);
         Btn_Enviar.setContentAreaFilled(false);
@@ -223,13 +234,13 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
-        Sc_Categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sc_Categoria.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Sc_Categoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setPreferredSize(new java.awt.Dimension(419, 42));
         getContentPane().add(Sc_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 430, 50));
 
-        Sc_Subcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sc_Subcategoria.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Sc_Subcategoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Subcategoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Subcategoria.setPreferredSize(new java.awt.Dimension(419, 42));
@@ -248,25 +259,21 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
                 Input_NomeActionPerformed(evt);
             }
         });
-        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 40));
+        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 600, 30));
 
-        Input_PrecoTrio.setBackground(new java.awt.Color(196, 196, 196));
-        Input_PrecoTrio.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        Input_PrecoTrio.setBorder(null);
-        getContentPane().add(Input_PrecoTrio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 500, 140, 42));
+        Input_TempoEspera.setBackground(new java.awt.Color(196, 196, 196));
+        Input_TempoEspera.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        Input_TempoEspera.setBorder(null);
+        getContentPane().add(Input_TempoEspera, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, 370, 40));
 
-        Input_PrecoDupla.setBackground(new java.awt.Color(196, 196, 196));
-        Input_PrecoDupla.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        Input_PrecoDupla.setBorder(null);
-        getContentPane().add(Input_PrecoDupla, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 500, 140, 42));
-
-        Input_PrecoIndividual.setBackground(new java.awt.Color(196, 196, 196));
-        Input_PrecoIndividual.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        Input_PrecoIndividual.setBorder(null);
-        getContentPane().add(Input_PrecoIndividual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, 140, 42));
+        Input_Preco.setBackground(new java.awt.Color(196, 196, 196));
+        Input_Preco.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        Input_Preco.setBorder(null);
+        getContentPane().add(Input_Preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 400, 30));
 
         Btn_Disponivel.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         Btn_Disponivel.setText("Disponível");
+        Btn_Disponivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Disponivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Btn_DisponivelMouseClicked(evt);
@@ -274,29 +281,8 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Disponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 170, 40));
 
-        Ck_Trio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ck_TrioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Ck_Trio, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, 30, 30));
-
-        Ck_Dupla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ck_DuplaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Ck_Dupla, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, 30, 30));
-
-        Ck_Individual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ck_IndividualActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Ck_Individual, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 30, 30));
-
         Feedback_ArquivoImagem.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 576, 650, 40));
+        getContentPane().add(Feedback_ArquivoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 586, 650, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CadastroProduto.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -304,18 +290,6 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Ck_TrioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ck_TrioActionPerformed
-
-    }//GEN-LAST:event_Ck_TrioActionPerformed
-
-    private void Ck_IndividualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ck_IndividualActionPerformed
-
-    }//GEN-LAST:event_Ck_IndividualActionPerformed
-
-    private void Ck_DuplaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ck_DuplaActionPerformed
-
-    }//GEN-LAST:event_Ck_DuplaActionPerformed
 
     private void Btn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SairActionPerformed
         System.exit(0);
@@ -333,7 +307,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
                 Feedback_ArquivoImagem.setText("Imagem enviada com sucesso.");
 
-                produtoRetorno.setFoto(ManipularImagem.getImgBytes(imagem));
+                foto = ManipularImagem.getImgBytes(imagem);
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
@@ -433,16 +407,12 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Sair;
     private javax.swing.JButton Btn_Visualizar;
     private javax.swing.JButton Btn_Voltar;
-    private javax.swing.JRadioButton Ck_Dupla;
-    private javax.swing.JRadioButton Ck_Individual;
-    private javax.swing.JRadioButton Ck_Trio;
     private javax.swing.JLabel Feedback_ArquivoImagem;
     private javax.swing.JLabel Img_BaseTela;
     private javax.swing.JTextField Input_Descricao;
     private javax.swing.JTextField Input_Nome;
-    private javax.swing.JTextField Input_PrecoDupla;
-    private javax.swing.JTextField Input_PrecoIndividual;
-    private javax.swing.JTextField Input_PrecoTrio;
+    private javax.swing.JTextField Input_Preco;
+    private javax.swing.JTextField Input_TempoEspera;
     private javax.swing.JComboBox<String> Sc_Categoria;
     private javax.swing.JComboBox<String> Sc_Subcategoria;
     // End of variables declaration//GEN-END:variables

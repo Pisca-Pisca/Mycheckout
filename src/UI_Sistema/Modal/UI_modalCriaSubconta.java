@@ -30,11 +30,12 @@ public class UI_modalCriaSubconta extends javax.swing.JDialog {
 
         Btn_Cancelar = new javax.swing.JButton();
         Btn_Confirmar = new javax.swing.JButton();
-        Input_Senha = new javax.swing.JTextField();
+        Input_Nome = new javax.swing.JTextField();
         Img_BaseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(484, 338));
         setMinimumSize(new java.awt.Dimension(484, 307));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,17 +50,26 @@ public class UI_modalCriaSubconta extends javax.swing.JDialog {
         Btn_Confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 130, 20));
 
-        Input_Senha.setBackground(new java.awt.Color(196, 196, 196));
-        Input_Senha.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
-        Input_Senha.setBorder(null);
-        getContentPane().add(Input_Senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 260, 60));
+        Input_Nome.setBackground(new java.awt.Color(196, 196, 196));
+        Input_Nome.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        Input_Nome.setBorder(null);
+        Input_Nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Input_NomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Input_Nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 260, 60));
 
-        Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalConfirmaRecebimento.png"))); // NOI18N
+        Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_ModalCriaSubconta.png"))); // NOI18N
         getContentPane().add(Img_BaseTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Input_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input_NomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Input_NomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,6 +124,6 @@ public class UI_modalCriaSubconta extends javax.swing.JDialog {
     private javax.swing.JButton Btn_Cancelar;
     private javax.swing.JButton Btn_Confirmar;
     private javax.swing.JLabel Img_BaseTela;
-    private javax.swing.JTextField Input_Senha;
+    private javax.swing.JTextField Input_Nome;
     // End of variables declaration//GEN-END:variables
 }

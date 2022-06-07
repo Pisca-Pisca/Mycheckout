@@ -5,6 +5,13 @@
  */
 package UI_Sistema;
 
+import Dao.MesaDAO;
+import Entity.Mesa;
+import Utils.ModeloTabela;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author nicol
@@ -16,6 +23,30 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
      */
     public UI_cadastroMesa() {
         initComponents();
+        atualizarTabela();
+    }
+
+    private void atualizarTabela() {
+        try {
+            MesaDAO mesaDao = new MesaDAO();
+            List<Mesa> listaMesa = mesaDao.selecionarTodos();
+
+            String[] columnName = {"Mesa", "Teste"};
+            Object[][] rows = new Object[listaMesa.size()][2];
+
+            for (int i = 0; i < listaMesa.size(); i++) {
+
+                rows[i][0] = "Mesa" + listaMesa.get(i).getNumeroMesa();
+                rows[i][1] = 10;
+
+                ModeloTabela model = new ModeloTabela(rows, columnName);
+                TabelaDesativada.setModel(model);
+                TabelaDesativada.setRowHeight(20);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(UI_visualizacaoProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -28,7 +59,7 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TabelaDesativada = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Btn_Editar = new javax.swing.JButton();
@@ -47,7 +78,7 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1024, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaDesativada.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -58,7 +89,7 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
                 "Title 1"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TabelaDesativada);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 390, 340));
 
@@ -79,30 +110,37 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
 
         Btn_Editar.setBorderPainted(false);
         Btn_Editar.setContentAreaFilled(false);
+        Btn_Editar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 210, 60, 40));
 
         Btn_Add.setBorderPainted(false);
         Btn_Add.setContentAreaFilled(false);
-        getContentPane().add(Btn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 210, 60, 40));
+        Btn_Add.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(Btn_Add, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 50, 40));
 
         Btn_Desativar.setBorderPainted(false);
         Btn_Desativar.setContentAreaFilled(false);
+        Btn_Desativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Desativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 80, 70));
 
         Btn_Excluir.setBorderPainted(false);
         Btn_Excluir.setContentAreaFilled(false);
+        Btn_Excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 210, 60, 40));
 
         Btn_Ativar.setBorderPainted(false);
         Btn_Ativar.setContentAreaFilled(false);
+        Btn_Ativar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Ativar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 80, 80));
 
         Btn_Voltar.setBorderPainted(false);
         Btn_Voltar.setContentAreaFilled(false);
+        Btn_Voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
         Btn_Sair.setBorderPainted(false);
         Btn_Sair.setContentAreaFilled(false);
+        Btn_Sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_Sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 720, 120, 30));
 
         Img_BaseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CadastroMesas.png"))); // NOI18N
@@ -156,9 +194,9 @@ public class UI_cadastroMesa extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Sair;
     private javax.swing.JButton Btn_Voltar;
     private javax.swing.JLabel Img_BaseTela;
+    private javax.swing.JTable TabelaDesativada;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

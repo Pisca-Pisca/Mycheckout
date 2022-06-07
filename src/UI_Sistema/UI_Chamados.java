@@ -40,7 +40,6 @@ public class UI_Chamados extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(1024, 768));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1024, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -131,9 +130,6 @@ public class UI_Chamados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Ativar;
-    private javax.swing.JButton Btn_Ativar1;
-    private javax.swing.JButton Btn_Ativar2;
     private javax.swing.JButton Btn_Ativar3;
     private javax.swing.JButton Btn_Sair;
     private javax.swing.JButton Btn_Voltar;

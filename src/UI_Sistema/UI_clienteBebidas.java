@@ -5,6 +5,10 @@
  */
 package UI_Sistema;
 
+import Dao.Chamados_filaDAO;
+import Entity.Chamados_fila;
+import UI_Sistema.Modal.UI_modalChamarGarcom;
+
 /**
  *
  * @author jessi
@@ -43,165 +47,178 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
         Img_baseTela = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(1024, 768));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         Btn_chamaGarcom.setBorderPainted(false);
         Btn_chamaGarcom.setContentAreaFilled(false);
-        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_chamaGarcom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_chamaGarcom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_chamaGarcomActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_chamaGarcom);
-        Btn_chamaGarcom.setBounds(960, 60, 50, 50);
+        Btn_chamaGarcom.setBounds(960, 80, 50, 50);
 
         Btn_bebidas.setBorderPainted(false);
         Btn_bebidas.setContentAreaFilled(false);
-        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_bebidas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_bebidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_bebidasActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_bebidas);
-        Btn_bebidas.setBounds(20, 180, 160, 60);
+        Btn_bebidas.setBounds(20, 200, 160, 60);
 
         Btn_entradas.setBorderPainted(false);
         Btn_entradas.setContentAreaFilled(false);
-        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_entradas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_entradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_entradasActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_entradas);
-        Btn_entradas.setBounds(20, 270, 160, 60);
+        Btn_entradas.setBounds(20, 290, 160, 60);
 
         Btn_pratosIndividuais.setBorderPainted(false);
         Btn_pratosIndividuais.setContentAreaFilled(false);
-        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosIndividuais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosIndividuais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosIndividuaisActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_pratosIndividuais);
-        Btn_pratosIndividuais.setBounds(20, 360, 160, 60);
+        Btn_pratosIndividuais.setBounds(20, 380, 160, 60);
 
         Btn_pratosCompartilhar.setBorderPainted(false);
         Btn_pratosCompartilhar.setContentAreaFilled(false);
-        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_pratosCompartilhar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_pratosCompartilhar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_pratosCompartilharActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_pratosCompartilhar);
-        Btn_pratosCompartilhar.setBounds(20, 450, 160, 60);
+        Btn_pratosCompartilhar.setBounds(20, 470, 160, 60);
 
         Btn_sobremesa.setBorderPainted(false);
         Btn_sobremesa.setContentAreaFilled(false);
-        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sobremesa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sobremesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sobremesaActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_sobremesa);
-        Btn_sobremesa.setBounds(20, 540, 160, 60);
+        Btn_sobremesa.setBounds(20, 570, 160, 60);
 
         Btn_minhaConta.setBorderPainted(false);
         Btn_minhaConta.setContentAreaFilled(false);
-        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_minhaConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_minhaConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_minhaContaActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_minhaConta);
-        Btn_minhaConta.setBounds(20, 630, 160, 50);
+        Btn_minhaConta.setBounds(20, 650, 160, 50);
 
         Btn_sair.setBorderPainted(false);
         Btn_sair.setContentAreaFilled(false);
-        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sairActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_sair);
-        Btn_sair.setBounds(890, 700, 120, 30);
+        Btn_sair.setBounds(890, 730, 120, 30);
 
         Btn_refrigerantes.setBorderPainted(false);
         Btn_refrigerantes.setContentAreaFilled(false);
-        Btn_refrigerantes.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_refrigerantes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_refrigerantes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_refrigerantesActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_refrigerantes);
-        Btn_refrigerantes.setBounds(210, 150, 800, 100);
+        Btn_refrigerantes.setBounds(210, 170, 800, 100);
 
         Btn_sucos.setBorderPainted(false);
         Btn_sucos.setContentAreaFilled(false);
-        Btn_sucos.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_sucos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_sucos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_sucosActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_sucos);
-        Btn_sucos.setBounds(210, 260, 800, 100);
+        Btn_sucos.setBounds(210, 280, 800, 100);
 
         Btn_aguas.setBorderPainted(false);
         Btn_aguas.setContentAreaFilled(false);
-        Btn_aguas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_aguas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_aguas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_aguasActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_aguas);
-        Btn_aguas.setBounds(210, 370, 800, 100);
+        Btn_aguas.setBounds(210, 390, 800, 100);
 
         Btn_cervejas.setBorderPainted(false);
         Btn_cervejas.setContentAreaFilled(false);
-        Btn_cervejas.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_cervejas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_cervejas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_cervejasActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_cervejas);
-        Btn_cervejas.setBounds(210, 480, 800, 90);
+        Btn_cervejas.setBounds(210, 500, 800, 90);
 
         Btn_drinks.setBorderPainted(false);
         Btn_drinks.setContentAreaFilled(false);
-        Btn_drinks.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
+        Btn_drinks.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_drinks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_drinksActionPerformed(evt);
             }
         });
         getContentPane().add(Btn_drinks);
-        Btn_drinks.setBounds(210, 590, 800, 90);
+        Btn_drinks.setBounds(210, 610, 800, 90);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioBebidas.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
-        Img_baseTela.setBounds(0, 0, 1025, 750);
+        Img_baseTela.setBounds(0, -10, 1025, 810);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_chamaGarcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_chamaGarcomActionPerformed
-        // TODO add your handling code here:
+        Chamados_fila chamado = new Chamados_fila(0, false, 1);
+
+        new Chamados_filaDAO().inserir(chamado);
+
+        UI_modalChamarGarcom modal = new UI_modalChamarGarcom(this, true);
+        modal.setVisible(true);
     }//GEN-LAST:event_Btn_chamaGarcomActionPerformed
 
     private void Btn_sobremesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sobremesaActionPerformed
         UI_clienteSobremesas sobremesas = new UI_clienteSobremesas();
         sobremesas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_sobremesaActionPerformed
 
     private void Btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sairActionPerformed
@@ -211,51 +228,71 @@ public class UI_clienteBebidas extends javax.swing.JFrame {
     private void Btn_bebidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_bebidasActionPerformed
         UI_clienteBebidas bebidasMenu = new UI_clienteBebidas();
         bebidasMenu.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_bebidasActionPerformed
 
     private void Btn_entradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_entradasActionPerformed
         UI_clienteEntradas entradas = new UI_clienteEntradas();
         entradas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_entradasActionPerformed
 
     private void Btn_pratosIndividuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosIndividuaisActionPerformed
         UI_clientePratosIndividuais pratosIndividuais = new UI_clientePratosIndividuais();
         pratosIndividuais.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosIndividuaisActionPerformed
 
     private void Btn_pratosCompartilharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_pratosCompartilharActionPerformed
         UI_clientePratosCompartilhar pratosCompartilhar = new UI_clientePratosCompartilhar();
         pratosCompartilhar.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_pratosCompartilharActionPerformed
 
     private void Btn_minhaContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_minhaContaActionPerformed
         UI_clienteMinhaConta minhaConta = new UI_clienteMinhaConta();
         minhaConta.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_minhaContaActionPerformed
 
     private void Btn_refrigerantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_refrigerantesActionPerformed
-        UI_clienteBebidasRefrigerantes refrigerantes = new UI_clienteBebidasRefrigerantes();
-        refrigerantes.setVisible(true);
+        UI_clienteBebidasVisualizar visualizarBebidas = new UI_clienteBebidasVisualizar(1);
+        visualizarBebidas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_refrigerantesActionPerformed
 
     private void Btn_sucosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_sucosActionPerformed
-        UI_clienteBebidasSucos sucos = new UI_clienteBebidasSucos();
-        sucos.setVisible(true);
+        UI_clienteBebidasVisualizar visualizarBebidas = new UI_clienteBebidasVisualizar(2);
+        visualizarBebidas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_sucosActionPerformed
 
     private void Btn_aguasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_aguasActionPerformed
-        UI_clienteBebidasAguas aguas = new UI_clienteBebidasAguas();
-        aguas.setVisible(true);
+        UI_clienteBebidasVisualizar visualizarBebidas = new UI_clienteBebidasVisualizar(3);
+        visualizarBebidas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_aguasActionPerformed
 
     private void Btn_cervejasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_cervejasActionPerformed
-        UI_clienteBebidasCervejas cervejas = new UI_clienteBebidasCervejas();
-        cervejas.setVisible(true);
+        UI_clienteBebidasVisualizar visualizarBebidas = new UI_clienteBebidasVisualizar(4);
+        visualizarBebidas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_cervejasActionPerformed
 
     private void Btn_drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_drinksActionPerformed
-        UI_clienteBebidasDrinks drinks = new UI_clienteBebidasDrinks();
-        drinks.setVisible(true);
+        UI_clienteBebidasVisualizar visualizarBebidas = new UI_clienteBebidasVisualizar(5);
+        visualizarBebidas.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_drinksActionPerformed
 
     /**
