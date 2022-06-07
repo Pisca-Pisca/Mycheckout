@@ -196,8 +196,6 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
 
             }
         ));
-        Tabela.setCellSelectionEnabled(false);
-        Tabela.setRowSelectionAllowed(true);
         Tabela.getTableHeader().setReorderingAllowed(false);
         Scroll_Tabela.setViewportView(Tabela);
 
@@ -333,6 +331,7 @@ public class UI_clienteEntradas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_add_carrinho;
+    private javax.swing.JButton Btn_adicionar;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;

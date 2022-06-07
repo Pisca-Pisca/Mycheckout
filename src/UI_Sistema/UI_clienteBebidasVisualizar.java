@@ -234,7 +234,7 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
         Btn_adicionar.setContentAreaFilled(false);
         Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_adicionar);
-        Btn_adicionar.setBounds(860, 180, 140, 10);
+        Btn_adicionar.setBounds(860, 180, 140, 12);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_bebidasVisualizar.png"))); // NOI18N
         Img_baseTela.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -367,6 +367,7 @@ public class UI_clienteBebidasVisualizar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_add_carrinho;
+    private javax.swing.JButton Btn_adicionar;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;

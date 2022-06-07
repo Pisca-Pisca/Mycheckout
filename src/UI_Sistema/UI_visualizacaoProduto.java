@@ -7,6 +7,8 @@ package UI_Sistema;
 
 import Dao.ProdutoDAO;
 import Entity.Produto;
+import UI_Sistema.Modal.UI_modalSenhaGarcom;
+import Utils.GeradorRelatorio;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -90,6 +92,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         Btn_Excluir = new javax.swing.JButton();
         Btn_Sair = new javax.swing.JButton();
         Btn_Editar = new javax.swing.JButton();
+        Btn_Imprimir = new javax.swing.JButton();
         Scroll_Tabela = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
         Img_BaseTela = new javax.swing.JLabel();
@@ -151,6 +154,16 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
         });
         getContentPane().add(Btn_Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 200, 40, 40));
 
+        Btn_Imprimir.setBorderPainted(false);
+        Btn_Imprimir.setContentAreaFilled(false);
+        Btn_Imprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btn_Imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 40, 40));
+
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -158,17 +171,27 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
             new String [] {
                 "Código", "Nome", "Tempo de espera", "Preço R$"
             }
-        ));
-        Tabela.setColumnSelectionAllowed(true);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         Tabela.setName(""); // NOI18N
         Tabela.setSelectionBackground(new java.awt.Color(196, 196, 196));
         Tabela.setSelectionForeground(new java.awt.Color(0, 0, 0));
         Tabela.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        Tabela.setShowVerticalLines(true);
         Scroll_Tabela.setViewportView(Tabela);
         Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (Tabela.getColumnModel().getColumnCount() > 0) {
             Tabela.getColumnModel().getColumn(0).setResizable(false);
             Tabela.getColumnModel().getColumn(1).setResizable(false);
+            Tabela.getColumnModel().getColumn(2).setResizable(false);
+            Tabela.getColumnModel().getColumn(3).setResizable(false);
         }
 
         getContentPane().add(Scroll_Tabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 268, 940, 330));
@@ -181,7 +204,10 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_VoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VoltarActionPerformed
-        // TODO add your handling code here:
+        UI_cadastroProduto cadProd = new UI_cadastroProduto();
+        cadProd.setVisible(true);
+
+        dispose();
     }//GEN-LAST:event_Btn_VoltarActionPerformed
 
     private void Btn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SairActionPerformed
@@ -211,6 +237,11 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nenhuma linha selecionada");
         }
     }//GEN-LAST:event_Btn_ExcluirActionPerformed
+
+    private void Btn_ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ImprimirActionPerformed
+        GeradorRelatorio gerador = new GeradorRelatorio();
+        gerador.Gerar(this, "Relatório", "Lista de Produtos", Tabela);
+    }//GEN-LAST:event_Btn_ImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +296,7 @@ public class UI_visualizacaoProduto extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Add;
     private javax.swing.JButton Btn_Editar;
     private javax.swing.JButton Btn_Excluir;
+    private javax.swing.JButton Btn_Imprimir;
     private javax.swing.JButton Btn_Sair;
     private javax.swing.JButton Btn_Voltar;
     private javax.swing.JLabel Img_BaseTela;

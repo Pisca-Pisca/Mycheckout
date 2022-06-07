@@ -90,19 +90,28 @@ public class UI_adminTelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SairActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_Btn_SairActionPerformed
 
     private void Btn_MesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_MesasActionPerformed
-        // TODO add your handling code here:
+        UI_cadastroMesa cadMesa =  new UI_cadastroMesa();
+        cadMesa.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_MesasActionPerformed
 
     private void Btn_GarçomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GarçomActionPerformed
-        // TODO add your handling code here:
+       UI_cadastroGarcom cadGarcom = new UI_cadastroGarcom();
+       cadGarcom.setVisible(true);
+       
+       dispose();
     }//GEN-LAST:event_Btn_GarçomActionPerformed
 
     private void Btn_ProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ProdutosActionPerformed
-        // TODO add your handling code here:
+        UI_cadastroProduto cadProd = new UI_cadastroProduto();
+        cadProd.setVisible(true);
+        
+        dispose();
     }//GEN-LAST:event_Btn_ProdutosActionPerformed
 
     /**

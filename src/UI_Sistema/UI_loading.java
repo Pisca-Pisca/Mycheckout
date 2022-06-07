@@ -30,6 +30,8 @@ public class UI_loading extends javax.swing.JFrame {
                     BarraProgresso.setValue(i);
                 }
                 
+                UI_menuPrincipal menu = new UI_menuPrincipal();
+                menu.setVisible(true);
                 dispose();
                 
             }catch(InterruptedException e){
@@ -59,7 +61,7 @@ public class UI_loading extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BarraProgresso.setBackground(new java.awt.Color(241, 241, 241));
-        BarraProgresso.setForeground(new java.awt.Color(141, 11, 0));
+        BarraProgresso.setForeground(new java.awt.Color(141, 13, 0));
         BarraProgresso.setMaximumSize(new java.awt.Dimension(727, 73));
         BarraProgresso.setMinimumSize(new java.awt.Dimension(727, 73));
         BarraProgresso.setName(""); // NOI18N

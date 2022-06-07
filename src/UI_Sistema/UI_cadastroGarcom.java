@@ -28,9 +28,9 @@ public class UI_cadastroGarcom extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TabelaGarcomInativo = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TabelaGarcomAtivo = new javax.swing.JTable();
         Btn_Editar = new javax.swing.JButton();
         Btn_Add = new javax.swing.JButton();
         Btn_Desativar = new javax.swing.JButton();
@@ -46,7 +46,7 @@ public class UI_cadastroGarcom extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaGarcomInativo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -54,14 +54,14 @@ public class UI_cadastroGarcom extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Title 1"
+                "Garçom Inativo"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(TabelaGarcomInativo);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 390, 340));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaGarcomAtivo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -69,10 +69,10 @@ public class UI_cadastroGarcom extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Title 1"
+                "Garçom Ativo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TabelaGarcomAtivo);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 390, 340));
 
@@ -172,9 +172,9 @@ public class UI_cadastroGarcom extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Sair;
     private javax.swing.JButton Btn_Voltar;
     private javax.swing.JLabel Img_BaseTela;
+    private javax.swing.JTable TabelaGarcomAtivo;
+    private javax.swing.JTable TabelaGarcomInativo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

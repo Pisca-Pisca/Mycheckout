@@ -358,6 +358,7 @@ public class UI_clientePratosIndividuaisVisualizar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_add_carrinho;
+    private javax.swing.JButton Btn_adicionar;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;

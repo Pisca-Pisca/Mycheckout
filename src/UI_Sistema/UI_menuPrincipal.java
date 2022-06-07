@@ -88,33 +88,38 @@ public class UI_menuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        System.exit(0);
+        UI_modalSenhaGarcom senhaGarcom = new UI_modalSenhaGarcom(null, true);
+        senhaGarcom.setVisible(true);
+
+        if (UI_modalSenhaGarcom.senhaOk == true) {
+            dispose();
+        }
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_adminActionPerformed
         UI_modalSenhaAdmin senhaAdmin = new UI_modalSenhaAdmin(null, true);
         senhaAdmin.setVisible(true);
-        
-        if(UI_modalSenhaAdmin.senhaOk == true){
-        dispose();
+
+        if (UI_modalSenhaAdmin.senhaOk == true) {
+            dispose();
         }
     }//GEN-LAST:event_btn_adminActionPerformed
 
     private void btn_garcomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_garcomActionPerformed
         UI_modalSenhaGarcom senhaGarcom = new UI_modalSenhaGarcom(null, true);
         senhaGarcom.setVisible(true);
-        
-        if(UI_modalSenhaGarcom.senhaOk == true){
-        dispose();
+
+        if (UI_modalSenhaGarcom.senhaOk == true) {
+            dispose();
         }
     }//GEN-LAST:event_btn_garcomActionPerformed
 
     private void btn_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clienteActionPerformed
         UI_modalSenhaGarcom senhaGarcom = new UI_modalSenhaGarcom(null, true);
         senhaGarcom.setVisible(true);
-        
-        if(UI_modalSenhaGarcom.senhaOk == true){
-        dispose();
+
+        if (UI_modalSenhaGarcom.senhaOk == true) {
+            dispose();
         }
     }//GEN-LAST:event_btn_clienteActionPerformed
 

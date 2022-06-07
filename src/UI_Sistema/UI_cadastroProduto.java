@@ -11,6 +11,7 @@ import Dao.SubcategoriaDAO;
 import Entity.Categoria;
 import Entity.Produto;
 import Entity.subcategoria;
+import UI_Sistema.Modal.UI_modalSenhaGarcom;
 import Utils.ManipularImagem;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -79,15 +80,15 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
 
             for (int i = 0; i < listCategoria.size(); i++) {
                 Sc_Categoria.addItem(listCategoria.get(i).getNome());
-                
+
                 Sc_Categoria.addItemListener(new ItemListener() {
-                @Override
-                public void itemStateChanged(ItemEvent e) {
-                    if (e.getStateChange() == ItemEvent.SELECTED) {
-                        listarSubcategorias(Sc_Categoria.getSelectedIndex()+1);
+                    @Override
+                    public void itemStateChanged(ItemEvent e) {
+                        if (e.getStateChange() == ItemEvent.SELECTED) {
+                            listarSubcategorias(Sc_Categoria.getSelectedIndex() + 1);
+                        }
                     }
-                }
-            });
+                });
             }
         } catch (Exception ex) {
             Logger.getLogger(UI_cadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
@@ -97,9 +98,9 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
     private void listarSubcategorias(int idcat) {
         try {
             listSubcategoria = subcategoriaDao.selecionarPorCat(idcat);
-                        
+
             Sc_Subcategoria.removeAllItems();
-            
+
             for (int i = 0; i < listSubcategoria.size(); i++) {
                 Sc_Subcategoria.addItem(listSubcategoria.get(i).getNome());
             }
@@ -145,10 +146,10 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         produtoRetorno.setTempoEspera(Input_TempoEspera.getText());
         produtoRetorno.setCategoria_codigo(categoriaProduto());
         produtoRetorno.setFoto(foto);
-        
-        if(Sc_Subcategoria.getSelectedItem() == null){
+
+        if (Sc_Subcategoria.getSelectedItem() == null) {
             produtoRetorno.setSubcategoria_codigo(null);
-        }else{
+        } else {
             produtoRetorno.setSubcategoria_codigo(subcategoriaProduto());
         }
     }
@@ -235,6 +236,7 @@ public class UI_cadastroProduto extends javax.swing.JFrame {
         getContentPane().add(Btn_Voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 120, 30));
 
         Sc_Categoria.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        Sc_Categoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Sc_Categoria.setMaximumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setMinimumSize(new java.awt.Dimension(419, 42));
         Sc_Categoria.setPreferredSize(new java.awt.Dimension(419, 42));

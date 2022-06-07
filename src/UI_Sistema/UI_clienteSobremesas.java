@@ -206,7 +206,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
         Btn_adicionar.setContentAreaFilled(false);
         Btn_adicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(Btn_adicionar);
-        Btn_adicionar.setBounds(860, 180, 140, 10);
+        Btn_adicionar.setBounds(860, 180, 140, 30);
 
         Img_baseTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Img_CardapioSobremesasVisualizar.png"))); // NOI18N
         getContentPane().add(Img_baseTela);
@@ -330,6 +330,7 @@ public class UI_clienteSobremesas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_add_carrinho;
+    private javax.swing.JButton Btn_adicionar;
     private javax.swing.JButton Btn_bebidas;
     private javax.swing.JButton Btn_chamaGarcom;
     private javax.swing.JButton Btn_entradas;
